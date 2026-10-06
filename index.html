@@ -1,0 +1,5023 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="朱政鹏｜辽宁大学微电子科学与工程｜Python｜PPT｜辩论与逻辑表达" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>朱政鹏｜个人简历</title>
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: rgba(255, 255, 255, .82);
+      --surface-solid: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #e5e9f2;
+      --primary: #4f46e5;
+      --primary-2: #06b6d4;
+      --primary-soft: rgba(79, 70, 229, .10);
+      --accent: #0ea5a4;
+      --success: #16a34a;
+      --shadow: 0 18px 55px rgba(15, 23, 42, .08);
+      --shadow-sm: 0 8px 25px rgba(15, 23, 42, .07);
+      --radius: 20px;
+      --nav-h: 68px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1020;
+      --surface: rgba(20, 27, 48, .82);
+      --surface-solid: #141b30;
+      --text: #edf2ff;
+      --muted: #9ba7bf;
+      --line: #283149;
+      --primary: #818cf8;
+      --primary-2: #22d3ee;
+      --primary-soft: rgba(129, 140, 248, .13);
+      --accent: #2dd4bf;
+      --success: #4ade80;
+      --shadow: 0 18px 55px rgba(0, 0, 0, .28);
+      --shadow-sm: 0 8px 25px rgba(0, 0, 0, .2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-h) + 18px);
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 5%, rgba(79, 70, 229, .10), transparent 28%),
+        radial-gradient(circle at 90% 18%, rgba(6, 182, 212, .08), transparent 25%),
+        var(--bg);
+      font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+        "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.7;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .34;
+      background-image:
+        linear-gradient(rgba(100, 116, 139, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 116, 139, .045) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 36px));
+      margin-inline: auto;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      height: var(--nav-h);
+      z-index: 100;
+      background: color-mix(in srgb, var(--surface-solid) 78%, transparent);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: max-content;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 11px;
+      border: 1.5px solid rgba(255, 255, 255, .35);
+      box-shadow: 0 7px 18px rgba(15, 23, 42, .35);
+      font-size: 14px;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links a {
+      padding: 7px 11px;
+      border-radius: 9px;
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+      transition: all .18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 7px;
+      min-width: max-content;
+    }
+
+    .icon-btn,
+    .btn {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+    }
+
+    .icon-btn:hover,
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+      border-color: color-mix(in srgb, var(--primary) 35%, var(--line));
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 640px;
+      display: grid;
+      align-items: center;
+      padding: calc(var(--nav-h) + 65px) 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr .75fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-weight: 750;
+      font-size: 13px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(14, 165, 164, .12);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(110deg, var(--primary), var(--primary-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-title {
+      margin: 18px 0;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.3;
+      letter-spacing: -.025em;
+      font-weight: 700;
+    }
+
+    .hero-desc {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 24px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 27px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--surface);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* 金色艺术字名言 */
+    .motto {
+      margin: 28px 0 0;
+      padding: 0;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .motto-ornament {
+      flex: 1;
+      max-width: 96px;
+      height: 1px;
+    }
+
+    .motto-ornament:first-child {
+      background: linear-gradient(to right, transparent, #d4af37);
+    }
+
+    .motto-ornament:last-child {
+      background: linear-gradient(to right, #d4af37, transparent);
+    }
+
+    .motto-text {
+      font-family: "STKaiti", "KaiTi", "楷体", "STSong", "SimSun", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: .26em;
+      white-space: nowrap;
+      background: linear-gradient(
+        100deg,
+        #a67c14 0%,
+        #e8c353 22%,
+        #fff6d0 50%,
+        #f0c350 78%,
+        #a67c14 100%
+      );
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 1px 2px rgba(120, 80, 0, .22));
+      animation: mottoShine 5.5s ease-in-out infinite;
+    }
+
+    [data-theme="dark"] .motto-text {
+      filter: drop-shadow(0 0 14px rgba(240, 195, 80, .35));
+    }
+
+    @keyframes mottoShine {
+      0%, 100% { background-position: 0% 0; }
+      50% { background-position: 100% 0; }
+    }
+
+    @media (max-width: 650px) {
+      .motto-text {
+        font-size: 21px;
+        letter-spacing: .18em;
+      }
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 11px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      color: #fff;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--primary), #6366f1);
+      box-shadow: 0 9px 22px rgba(79, 70, 229, .2);
+    }
+
+    .btn-ghost {
+      background: var(--surface);
+    }
+
+    .profile-card {
+      position: relative;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -80px;
+      top: -80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      opacity: .13;
+    }
+
+    .avatar {
+      width: 86px;
+      height: 86px;
+      margin-bottom: 19px;
+      border-radius: 25px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #4338ca, #0891b2);
+      box-shadow: 0 15px 30px rgba(67, 56, 202, .25);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+    }
+
+    .profile-name {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .profile-sub {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 3px 0 20px;
+    }
+
+    .quick-info {
+      display: grid;
+      gap: 10px;
+    }
+
+    .quick-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-bottom: 9px;
+      border-bottom: 1px dashed var(--line);
+      font-size: 12px;
+    }
+
+    .quick-row span:first-child {
+      color: var(--muted);
+    }
+
+    .quick-row span:last-child {
+      text-align: right;
+      font-weight: 650;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.15;
+      letter-spacing: -.04em;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      max-width: 500px;
+      margin: 8px 0 0;
+      font-size: 14px;
+    }
+
+    /* Highlights */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .highlight {
+      position: relative;
+      padding: 22px;
+      min-height: 150px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .highlight:hover,
+    .card:hover,
+    .timeline-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .highlight-number {
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: -.05em;
+      color: var(--primary);
+    }
+
+    .highlight-label {
+      margin-top: 11px;
+      font-weight: 750;
+      font-size: 14px;
+    }
+
+    .highlight-text {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .highlight-link {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .highlight-cta {
+      margin-top: auto;
+      padding-top: 14px;
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .02em;
+      color: var(--primary);
+      background: color-mix(in srgb, var(--primary) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--primary) 26%, transparent);
+      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .highlight-link:hover .highlight-cta {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateX(3px);
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 5px;
+      padding: 5px;
+      width: max-content;
+      max-width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--surface);
+      margin-bottom: 22px;
+      scrollbar-width: none;
+    }
+
+    .tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab {
+      border: 0;
+      padding: 8px 14px;
+      border-radius: 9px;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tab[aria-selected="true"] {
+      color: var(--text);
+      background: var(--surface-solid);
+      box-shadow: 0 3px 12px rgba(15, 23, 42, .07);
+    }
+
+    .tab-panel {
+      animation: fadeUp .2s ease both;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 15px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 14px;
+      bottom: 14px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 21px 24px 21px 37px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 4px;
+      top: 25px;
+      width: 11px;
+      height: 11px;
+      border: 3px solid var(--bg);
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-soft);
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .item-title {
+      font-weight: 800;
+      font-size: 17px;
+    }
+
+    .item-company {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .item-time {
+      color: var(--muted);
+      white-space: nowrap;
+      font-size: 12px;
+    }
+
+    .item-desc {
+      color: var(--muted);
+      margin: 9px 0 0;
+      font-size: 13px;
+    }
+
+    .item-list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .item-list li + li {
+      margin-top: 5px;
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .card {
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .project-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--primary);
+      background: var(--primary-soft);
+      margin-bottom: 17px;
+    }
+
+    .project-title {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .project-stack {
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 750;
+      margin-bottom: 12px;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .project-result {
+      margin-top: 15px;
+      padding-top: 13px;
+      border-top: 1px dashed var(--line);
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    /* Skills */
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .skill-group {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .skill-heading {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .skill-heading span {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .skill {
+      margin-bottom: 14px;
+    }
+
+    .skill:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-meta {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 5px;
+    }
+
+    .progress {
+      height: 6px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: color-mix(in srgb, var(--line) 75%, transparent);
+    }
+
+    .progress i {
+      display: block;
+      height: 100%;
+      width: var(--value);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      transform-origin: left;
+      animation: grow .8s ease both;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .skill-tag {
+      padding: 7px 9px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      color: var(--muted);
+      background: var(--surface-solid);
+      font-size: 11px;
+    }
+
+    /* Education */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 15px;
+    }
+
+    .education-card,
+    .about-card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .school {
+      font-size: 21px;
+      font-weight: 850;
+      letter-spacing: -.03em;
+    }
+
+    .major {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 750;
+      margin-top: 2px;
+    }
+
+    .edu-time {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 15px 0;
+    }
+
+    .education-card p,
+    .about-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 7px 0;
+    }
+
+    .about-card h3 {
+      margin: 0 0 12px;
+      font-size: 16px;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(4, 8, 20, .84);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      cursor: zoom-out;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .22s ease;
+    }
+
+    .lightbox.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox img {
+      max-width: min(92vw, 1000px);
+      max-height: 84vh;
+      border-radius: 14px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
+    }
+
+    .lightbox-hint {
+      position: absolute;
+      bottom: 22px;
+      color: rgba(255, 255, 255, .68);
+      font-size: 12px;
+      letter-spacing: .06em;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      top: 26px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 8px 18px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .22);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      white-space: nowrap;
+    }
+
+    .lightbox-fallback {
+      display: none;
+      max-width: 420px;
+      padding: 34px 30px;
+      border-radius: 16px;
+      text-align: center;
+      color: rgba(255, 255, 255, .92);
+      background: rgba(255, 255, 255, .08);
+      border: 1px dashed rgba(255, 255, 255, .35);
+    }
+
+    .lightbox-fallback.show {
+      display: block;
+    }
+
+    .lightbox-fallback strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .lightbox-fallback span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, .68);
+    }
+
+    /* Honors */
+    .honor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .honor-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .honor-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .honor-card .cert-btn {
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+
+    .honor-badge {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 850;
+      letter-spacing: -.02em;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, .18);
+    }
+
+    .honor-badge--debate {
+      background: linear-gradient(135deg, #d97706, #f59e0b);
+    }
+
+    .honor-badge--ai {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    }
+
+    .honor-badge--cloud {
+      background: linear-gradient(135deg, #0f766e, #22d3ee);
+    }
+
+    .honor-badge--grad {
+      background: linear-gradient(135deg, #b91c1c, #f59e0b);
+    }
+
+    .honor-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 750;
+      margin-bottom: 8px;
+    }
+
+    .honor-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      line-height: 1.4;
+    }
+
+    .honor-desc {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.75;
+    }
+
+    .cert-btn {
+      margin-top: 4px;
+      padding: 8px 15px;
+      border: 1px solid color-mix(in srgb, var(--primary) 40%, var(--line));
+      border-radius: 10px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 12.5px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .cert-btn:hover {
+      transform: translateY(-2px);
+      background: color-mix(in srgb, var(--primary) 16%, transparent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Contact */
+    .contact-box {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 30px;
+      align-items: center;
+      padding: 34px;
+      border-radius: 26px;
+      color: white;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(34, 211, 238, .34), transparent 30%),
+        linear-gradient(120deg, #312e81, #0f766e);
+      box-shadow: 0 22px 55px rgba(49, 46, 129, .22);
+    }
+
+    .contact-box h2 {
+      color: white;
+    }
+
+    .contact-box p {
+      color: rgba(255, 255, 255, .76);
+      font-size: 13px;
+      margin: 9px 0 0;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .contact-actions .btn {
+      background: rgba(255,255,255,.11);
+      border-color: rgba(255,255,255,.2);
+      color: white;
+    }
+
+    .contact-actions .btn:hover {
+      background: rgba(255,255,255,.18);
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 0 40px;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--surface-solid);
+      color: var(--text);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: all .2s ease;
+      z-index: 50;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       背景音乐播放入口 · 茉莉唱片
+       ========================================================= */
+    .music-player {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .music-disc {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 32% 28%,
+        rgba(58, 78, 110, .92),
+        rgba(18, 27, 48, .94) 72%);
+      box-shadow:
+        0 8px 24px rgba(8, 13, 28, .5),
+        inset 0 1px 1px rgba(255, 255, 255, .18);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .music-disc:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow:
+        0 12px 30px rgba(8, 13, 28, .55),
+        0 0 0 1px rgba(168, 214, 184, .35),
+        inset 0 1px 1px rgba(255, 255, 255, .2);
+    }
+
+    /* 呼吸光晕（播放时显现） */
+    .disc-halo {
+      position: absolute;
+      inset: -7px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+        rgba(158, 213, 195, .32),
+        rgba(158, 213, 195, 0) 68%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s ease;
+    }
+
+    .music-player.playing .disc-halo {
+      opacity: 1;
+      animation: discPulse 2.8s ease-in-out infinite;
+    }
+
+    @keyframes discPulse {
+      0%, 100% { transform: scale(1); opacity: .75; }
+      50% { transform: scale(1.14); opacity: 1; }
+    }
+
+    /* 旋转刻痕环 */
+    .disc-ring {
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      border: 1px dashed rgba(200, 230, 214, .35);
+      animation: discSpin 9s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .music-player.playing .disc-ring {
+      animation-play-state: running;
+    }
+
+    .disc-dot {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(233, 246, 238, .85);
+      top: 2px;
+      left: 50%;
+      margin-left: -1.5px;
+      box-shadow: 0 0 6px rgba(200, 240, 220, .9);
+    }
+
+    .disc-dot:nth-child(2) { top: auto; bottom: 7px; left: 9px; }
+    .disc-dot:nth-child(3) { top: 10px; left: auto; right: 6px; }
+
+    @keyframes discSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .disc-face {
+      position: relative;
+      z-index: 1;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #eaf6ee;
+      background: radial-gradient(circle at 35% 30%,
+        rgba(255, 255, 255, .22),
+        rgba(255, 255, 255, 0) 70%),
+        linear-gradient(135deg, #7fb89a, #4d8a6c);
+      box-shadow: 0 0 12px rgba(140, 205, 170, .45);
+    }
+
+    .disc-face svg {
+      width: 15px;
+      height: 15px;
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .35));
+    }
+
+    .disc-face .icon-pause { display: none; }
+    .music-player.playing .disc-face .icon-play { display: none; }
+    .music-player.playing .disc-face .icon-pause { display: block; }
+
+    /* 展开面板 */
+    .music-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 7px;
+      padding: 9px 15px 9px 13px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, .82);
+      border: 1px solid rgba(168, 214, 184, .22);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 28px rgba(8, 13, 28, .5);
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding-left: 0;
+      padding-right: 0;
+      border-width: 0;
+      transform: translateX(-8px);
+      transition: max-width .35s ease, opacity .3s ease, transform .35s ease,
+                  padding .35s ease, border-width .35s ease;
+    }
+
+    .music-player:hover .music-panel,
+    .music-player.pinned .music-panel,
+    .music-player:focus-within .music-panel {
+      max-width: 220px;
+      opacity: 1;
+      padding-left: 13px;
+      padding-right: 15px;
+      border-width: 1px;
+      transform: translateX(0);
+    }
+
+    .music-info {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      border: none;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+      color: #dceee3;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+
+    .music-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .06em;
+    }
+
+    /* 跳动的均衡器 */
+    .music-eq {
+      display: none;
+      align-items: flex-end;
+      gap: 2.5px;
+      height: 13px;
+    }
+
+    .music-player.playing .music-eq { display: inline-flex; }
+
+    .music-eq i {
+      width: 2.5px;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(to top, #8fd8b4, #d9f5e5);
+      animation: eqBounce 1s ease-in-out infinite;
+    }
+
+    .music-eq i:nth-child(1) { animation-delay: 0s; }
+    .music-eq i:nth-child(2) { animation-delay: .18s; }
+    .music-eq i:nth-child(3) { animation-delay: .36s; }
+    .music-eq i:nth-child(4) { animation-delay: .12s; }
+
+    @keyframes eqBounce {
+      0%, 100% { height: 4px; }
+      50% { height: 13px; }
+    }
+
+    /* 音量条 */
+    .music-vol {
+      display: none;
+      align-items: center;
+      gap: 7px;
+      color: #a8d6b8;
+    }
+
+    .music-player.pinned .music-vol,
+    .music-player:hover .music-vol,
+    .music-player:focus-within .music-vol { display: flex; }
+
+    #musicVolume {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 92px;
+      height: 3px;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+      background: linear-gradient(to right,
+        #8fd8b4 var(--vol, 30%),
+        rgba(255, 255, 255, .16) var(--vol, 30%));
+    }
+
+    #musicVolume::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #eafff2;
+      border: 2px solid #6fc594;
+      box-shadow: 0 0 8px rgba(143, 216, 180, .7);
+    }
+
+    #musicVolume::-moz-range-thumb {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #eafff2;
+      border: 2px solid #6fc594;
+      box-shadow: 0 0 8px rgba(143, 216, 180, .7);
+    }
+
+    /* 飘出的音符 */
+    .music-note {
+      position: absolute;
+      left: 18px;
+      bottom: 40px;
+      font-size: 15px;
+      color: rgba(190, 235, 210, .9);
+      pointer-events: none;
+      opacity: 0;
+      text-shadow: 0 0 10px rgba(150, 220, 185, .8);
+    }
+
+    .music-player.playing .music-note {
+      animation: noteFloat 4.2s ease-in infinite;
+    }
+
+    .music-player.playing .music-note-2 { animation-delay: 1.4s; left: 30px; font-size: 12px; }
+    .music-player.playing .music-note-3 { animation-delay: 2.8s; left: 10px; font-size: 13px; }
+
+    @keyframes noteFloat {
+      0%   { transform: translate(0, 0) rotate(0deg) scale(.7); opacity: 0; }
+      12%  { opacity: .95; }
+      75%  { opacity: .7; }
+      100% { transform: translate(26px, -64px) rotate(24deg) scale(1.1); opacity: 0; }
+    }
+
+    @media (max-width: 650px) {
+      .music-player {
+        left: 14px;
+        bottom: 14px;
+      }
+
+      .music-disc {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+      }
+
+      /* 触屏无 hover：播放后常显歌名，点歌名再展开音量 */
+      .music-player.playing .music-panel {
+        max-width: 132px;
+        opacity: 1;
+        padding-left: 13px;
+        padding-right: 13px;
+        border-width: 1px;
+        transform: translateX(0);
+      }
+
+      .music-player.pinned.playing .music-panel {
+        max-width: 200px;
+      }
+
+      .music-player.pinned.playing .music-vol { display: flex; }
+    }
+
+    /* =========================================================
+       背景音乐询问弹窗
+       ========================================================= */
+    .music-ask {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      visibility: hidden;
+      pointer-events: none;
+      transition: visibility .35s ease;
+    }
+
+    .music-ask.show {
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .music-ask-mask {
+      position: absolute;
+      inset: 0;
+      background: rgba(7, 12, 26, .58);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+
+    .music-ask.show .music-ask-mask {
+      opacity: 1;
+    }
+
+    .music-ask-card {
+      position: relative;
+      width: min(372px, 100%);
+      padding: 34px 30px 24px;
+      border-radius: 24px;
+      text-align: center;
+      background:
+        radial-gradient(120% 90% at 50% -10%, rgba(143, 216, 180, .16), transparent 60%),
+        rgba(17, 27, 48, .92);
+      border: 1px solid rgba(168, 214, 184, .28);
+      box-shadow:
+        0 30px 80px rgba(4, 8, 20, .65),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+      opacity: 0;
+      transform: translateY(18px) scale(.94);
+      transition: opacity .4s cubic-bezier(.22, 1, .36, 1),
+                  transform .4s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .music-ask.show .music-ask-card {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* 顶部茉莉花 */
+    .ask-flower {
+      position: relative;
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+    }
+
+    .ask-flower-glow {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+        rgba(158, 213, 195, .4),
+        rgba(158, 213, 195, 0) 68%);
+      animation: askGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes askGlow {
+      0%, 100% { transform: scale(.9); opacity: .6; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+
+    .ask-flower svg {
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 3px 10px rgba(150, 220, 185, .45));
+    }
+
+    .ask-flower-spin {
+      transform-origin: 30px 30px;
+      animation: askFlowerSpin 18s linear infinite;
+    }
+
+    @keyframes askFlowerSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .ask-title {
+      margin: 4px 0 10px;
+      font-size: 21px;
+      font-weight: 700;
+      color: #f0f8f3;
+      letter-spacing: .04em;
+    }
+
+    .ask-desc {
+      margin: 0 0 22px;
+      font-size: 13.5px;
+      line-height: 1.85;
+      color: rgba(220, 238, 227, .78);
+    }
+
+    .ask-actions {
+      display: flex;
+      gap: 11px;
+      justify-content: center;
+    }
+
+    .ask-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 11px 22px;
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: inherit;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease,
+                  border-color .2s ease;
+    }
+
+    .ask-yes {
+      color: #0d2418;
+      border: 1px solid transparent;
+      background: linear-gradient(135deg, #a7e3c4, #6fc594);
+      box-shadow: 0 8px 22px rgba(111, 197, 148, .38);
+    }
+
+    .ask-yes:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(111, 197, 148, .5);
+    }
+
+    .ask-no {
+      color: rgba(226, 240, 232, .82);
+      border: 1px solid rgba(168, 214, 184, .3);
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .ask-no:hover {
+      transform: translateY(-2px);
+      border-color: rgba(168, 214, 184, .55);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    /* “运用 AI 自创”小徽章 */
+    .ask-ai-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: .5px;
+      font-weight: 600;
+      color: #9fe3bd;
+      background: rgba(111, 197, 148, .1);
+      border: 1px solid rgba(159, 227, 189, .35);
+      box-shadow: 0 0 14px rgba(111, 197, 148, .12);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .ask-ai-badge svg {
+      width: 11px;
+      height: 11px;
+      animation: askBadgeTwinkle 2.6s ease-in-out infinite;
+    }
+
+    @keyframes askBadgeTwinkle {
+      0%, 100% { opacity: .65; transform: scale(.9); }
+      50%      { opacity: 1;   transform: scale(1.15); }
+    }
+
+    @media (max-width: 480px) {
+      .music-ask {
+        padding: 16px;
+      }
+
+      .music-ask-card {
+        padding: 26px 20px 20px;
+      }
+
+      .ask-title {
+        font-size: 19px;
+      }
+
+      .ask-actions {
+        gap: 8px;
+      }
+
+      .ask-btn {
+        padding: 10px 15px;
+        font-size: 13px;
+        gap: 6px;
+      }
+
+      .ask-btn svg {
+        width: 13px;
+        height: 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ask-flower-spin,
+      .ask-flower-glow {
+        animation: none;
+      }
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      transform: translate(-50%, 15px);
+      z-index: 200;
+      padding: 9px 14px;
+      border-radius: 10px;
+      color: white;
+      background: #111827;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all .2s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes grow {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    .reveal {
+      animation: fadeUp .45s ease both;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .edu-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        max-width: 520px;
+      }
+
+      .highlights {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 110px;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .highlights,
+      .project-grid,
+      .skills-layout,
+      .honor-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .item-top {
+        display: block;
+      }
+
+      .item-time {
+        display: block;
+        margin-top: 4px;
+      }
+
+      .contact-box {
+        padding: 25px;
+      }
+
+      .brand span:not(.brand-mark) {
+        display: none;
+      }
+
+      .nav-actions .icon-btn {
+        width: 35px;
+        height: 35px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    /* =========================================================
+       茉莉花光标 Jasmine Cursor
+       ========================================================= */
+    #jasmineCursor {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      margin: -16px 0 0 -16px;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      transform: translate(var(--jx, -100px), var(--jy, -100px)) scale(var(--js, 1));
+      transition: opacity .3s ease, transform .12s ease-out;
+      will-change: transform;
+    }
+
+    #jasmineCursor.ready {
+      opacity: .96;
+    }
+
+    #jasmineCursor.hover {
+      --js: 1.3;
+    }
+
+    #jasmineCursor.down {
+      --js: .85;
+    }
+
+    #jasmineCursor svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      filter: drop-shadow(0 2px 6px rgba(15, 23, 42, .28));
+      transform-origin: 50% 82%;
+      animation: jasmineSway 2.8s ease-in-out infinite;
+    }
+
+    #jasmineCursor.nod svg {
+      animation: jasmineNod .55s ease;
+    }
+
+    @keyframes jasmineSway {
+      0%, 100% { transform: rotate(-7deg); }
+      50% { transform: rotate(7deg); }
+    }
+
+    @keyframes jasmineNod {
+      0%   { transform: rotate(0) scale(1); }
+      25%  { transform: rotate(-16deg) scale(1.22); }
+      55%  { transform: rotate(12deg) scale(.92); }
+      80%  { transform: rotate(-4deg) scale(1.05); }
+      100% { transform: rotate(0) scale(1); }
+    }
+
+    /* 触屏设备不启用花形光标 */
+    @media (pointer: fine) {
+      body,
+      body * {
+        cursor: none !important;
+      }
+    }
+
+    @media (pointer: coarse) {
+      #jasmineCursor {
+        display: none;
+      }
+    }
+
+    /* =========================================================
+       茉莉点缀花 Jasmine Decorations
+       ========================================================= */
+    .jasmine-deco {
+      position: absolute;
+      pointer-events: none;
+      color: #84a98c;
+      opacity: .55;
+      animation: decoFloat 7s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    [data-theme="dark"] .jasmine-deco {
+      opacity: .4;
+    }
+
+    .jasmine-deco svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, .12));
+    }
+
+    .jasmine-deco--hero {
+      right: 4%;
+      top: 16%;
+      width: 96px;
+      height: 96px;
+    }
+
+    .jasmine-deco--hero2 {
+      left: 2%;
+      bottom: 12%;
+      width: 62px;
+      height: 62px;
+      animation-delay: -3.2s;
+    }
+
+    .jasmine-deco--contact {
+      right: 26px;
+      top: -26px;
+      width: 74px;
+      height: 74px;
+      animation-delay: -1.8s;
+    }
+
+    @keyframes decoFloat {
+      0%, 100% { transform: translateY(0) rotate(-6deg); }
+      50% { transform: translateY(-12px) rotate(6deg); }
+    }
+
+    @media (max-width: 650px) {
+      .jasmine-deco--hero {
+        width: 64px;
+        height: 64px;
+        right: 2%;
+      }
+      .jasmine-deco--hero2 {
+        display: none;
+      }
+    }
+
+    /* Print */
+    @media print {
+      :root {
+        --bg: #fff;
+        --surface: #fff;
+        --surface-solid: #fff;
+        --text: #111827;
+        --muted: #4b5563;
+        --line: #d1d5db;
+      }
+
+      body {
+        background: white !important;
+        color: #111827 !important;
+        font-size: 10pt;
+      }
+
+      body::before,
+      .nav,
+      .back-top,
+      .music-player,
+      .music-ask,
+      .toast,
+      .lightbox,
+      #jasmineCursor,
+      .jasmine-deco,
+      .hero-actions,
+      .tabs,
+      .contact-actions {
+        display: none !important;
+      }
+
+      .motto-text {
+        color: #8a6d1d !important;
+        -webkit-text-fill-color: #8a6d1d !important;
+        background: none !important;
+        filter: none !important;
+        animation: none !important;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .hero {
+        min-height: 0;
+        padding: 25px 0 20px;
+      }
+
+      section {
+        padding: 20px 0;
+        break-inside: avoid;
+      }
+
+      .hero-grid,
+      .edu-grid,
+      .skills-layout,
+      .project-grid,
+      .highlights {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.5fr .8fr;
+      }
+
+      .highlights {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .profile-card,
+      .highlight,
+      .card,
+      .skill-group,
+      .education-card,
+      .about-card,
+      .timeline-item {
+        box-shadow: none !important;
+        background: #fff !important;
+      }
+
+      .contact-box {
+        background: #312e81 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .timeline-item,
+      .card,
+      .highlight,
+      .skill-group,
+      .education-card,
+      .about-card {
+        break-inside: avoid;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      footer {
+        padding-top: 15px;
+      }
+    }
+
+    /* =========================================================
+       COSMIC STARFIELD
+       ========================================================= */
+
+    #cosmicCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .92;
+    }
+
+    .cosmic-vignette {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          ellipse at center,
+          transparent 0%,
+          rgba(15, 23, 42, .015) 42%,
+          rgba(15, 23, 42, .10) 100%
+        );
+      mix-blend-mode: multiply;
+    }
+
+    [data-theme="dark"] .cosmic-vignette {
+      background:
+        radial-gradient(
+          ellipse at center,
+          transparent 0%,
+          rgba(2, 6, 23, .08) 40%,
+          rgba(2, 6, 23, .55) 100%
+        );
+      mix-blend-mode: normal;
+    }
+
+    [data-theme="dark"] #cosmicCanvas {
+      opacity: 1;
+    }
+
+    /* 星座名称浮层 */
+    .constellation-label {
+      position: fixed;
+      pointer-events: none;
+      z-index: -1;
+      color: rgba(129, 140, 248, .16);
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transform: translate(-50%, -50%);
+      text-shadow:
+        0 0 12px rgba(129, 140, 248, .15),
+        0 0 30px rgba(34, 211, 238, .08);
+    }
+
+    [data-theme="dark"] .constellation-label {
+      color: rgba(165, 180, 252, .38);
+    }
+
+    /* 星空区域的中心氛围辉光 */
+    .cosmic-glow {
+      position: fixed;
+      width: 55vw;
+      height: 55vw;
+      max-width: 800px;
+      max-height: 800px;
+      left: 50%;
+      top: 45%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -3;
+      background:
+        radial-gradient(
+          circle,
+          rgba(79, 70, 229, .045) 0%,
+          rgba(6, 182, 212, .018) 30%,
+          transparent 70%
+        );
+      filter: blur(30px);
+    }
+
+    [data-theme="dark"] .cosmic-glow {
+      background:
+        radial-gradient(
+          circle,
+          rgba(79, 70, 229, .14) 0%,
+          rgba(6, 182, 212, .07) 30%,
+          transparent 72%
+        );
+    }
+
+    /* 减少动画 */
+    @media (prefers-reduced-motion: reduce) {
+      #cosmicCanvas {
+        display: none;
+      }
+
+      .cosmic-vignette,
+      .cosmic-glow {
+        display: none;
+      }
+    }
+
+    @media (max-width: 650px) {
+      #cosmicCanvas {
+        opacity: .55;
+      }
+
+      .cosmic-glow {
+        width: 90vw;
+        height: 90vw;
+      }
+    }
+  
+    /* Jasmine signature entrance */
+    body.signature-entering { overflow: hidden; }
+    #signatureIntro {
+      position: fixed; inset: 0; z-index: 100000; display: grid; place-items: center;
+      overflow: hidden; color: #f5f3e8;
+      background: radial-gradient(ellipse at 50% 46%, #18362e 0%, #0b1b18 48%, #07110f 100%);
+      opacity: 1; transition: opacity 480ms ease;
+    }
+    #signatureIntro.is-leaving { opacity: 0; pointer-events: none; }
+    #signatureIntro::before {
+      content: ''; position: absolute; inset: 24px; border: 1px solid #c9dfc51a;
+      border-radius: 2px; pointer-events: none;
+    }
+    .signature-heading { position: absolute; top: 22%; text-align: center;
+      font: 11px/2 Arial, sans-serif; letter-spacing: .42em; color: #c1d2bd; }
+    .signature-heading span { display: block; font-size: 12px; letter-spacing: .55em; opacity: .65; }
+    #signatureCanvas { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity 240ms ease; }
+    #signatureIntro.is-text #signatureCanvas { opacity: 0; }
+    .signature-copy { position: relative; margin: 0; text-align: center; white-space: nowrap;
+      font-family: 'STKaiti', 'KaiTi', '楷体', 'STSong', 'SimSun', serif;
+      font-size: clamp(25px, 5.2vw, 68px); font-weight: 400; letter-spacing: .12em;
+      line-height: 1.5; opacity: 0; transform: translateY(18px);
+      text-shadow: 0 0 28px #e2ecc02b;
+      transition: opacity 240ms ease, transform 240ms cubic-bezier(.16,1,.3,1);
+    }
+    #signatureIntro.is-text .signature-copy { opacity: 1; transform: translateY(0); }
+    .signature-name { display: block; padding-left: .22em; font-size: clamp(48px, 8vw, 100px);
+      letter-spacing: .22em; line-height: 1.35; margin-bottom: 18px; }
+    .signature-motto { display: block; padding-left: .12em; font-size: clamp(20px, 3.6vw, 44px); }
+    .signature-footer { position: absolute; bottom: 22%; color: #a6bca4;
+      font-size: 11px; letter-spacing: .35em; }
+    .signature-skip { position: absolute; right: 36px; bottom: 34px; padding: 8px 14px;
+      border: 1px solid #d9e8ca30; border-radius: 99px; background: #ffffff05;
+      color: #b4c5b1; font-size: 11px; cursor: pointer; }
+    .signature-skip:focus-visible { outline: 2px solid #e6e9cd; outline-offset: 4px; }
+    .signature-flower { position: absolute; width: 130px; height: 130px; opacity: .65; pointer-events: none; }
+    .signature-flower.one { left: 12%; bottom: 19%; transform: rotate(-24deg); }
+    .signature-flower.two { right: 12%; top: 20%; width: 82px; height: 82px; transform: rotate(32deg); opacity: .4; }
+    @media (max-width: 600px) {
+      #signatureIntro::before { inset: 14px; }
+      .signature-flower.one { left: 8%; bottom: 25%; width: 80px; height: 80px; }
+      .signature-flower.two { right: 8%; top: 28%; width: 60px; height: 60px; }
+      .signature-skip { right: 24px; bottom: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #signatureIntro, #signatureCanvas, .signature-copy { transition: none; }
+      .signature-copy { transform: none; }
+    }
+    @media print { #signatureIntro { display: none !important; } body.signature-entering { overflow: visible; } }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="signatureIntro" role="dialog" aria-modal="true" aria-label="签名开场" hidden>
+    <div class="signature-heading" aria-hidden="true">JASMINE<span>茉莉 · 清雅自持</span></div>
+    <div class="signature-flower one"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 52Q40 75 20 86M36 68Q15 56 13 71Q20 81 36 68M30 76Q39 93 48 83Q46 73 30 76" stroke="#97b897" stroke-width="1" fill="#456c4c"/><g fill="#f4f4e9" stroke="#e0e5c6" stroke-width=".5"><ellipse cx="50" cy="35" rx="9" ry="17"/><ellipse cx="50" cy="35" rx="9" ry="17" transform="rotate(60 50 50)"/><ellipse cx="50" cy="35" rx="9" ry="17" transform="rotate(120 50 50)"/><ellipse cx="50" cy="35" rx="9" ry="17" transform="rotate(180 50 50)"/><ellipse cx="50" cy="35" rx="9" ry="17" transform="rotate(240 50 50)"/><ellipse cx="50" cy="35" rx="9" ry="17" transform="rotate(300 50 50)"/></g><circle cx="50" cy="50" r="5" fill="#d8c788"/></svg></div>
+    <div class="signature-flower two"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 52Q40 75 20 86M36 68Q15 56 13 71Q20 81 36 68M30 76Q39 93 48 83Q46 73 30 76" stroke="#97b897" stroke-width="1" fill="#456c4c"/><g fill="#f4f4e9" stroke="#e0e5c6" stroke-width=".5"><ellipse cx="50" cy="35" rx="9" ry="17"/><ellipse cx="50" cy="35" rx="9" ry="17" transform="rotate(60 50 50)"/><ellipse cx="50" cy="35" rx="9" ry="17" transform="rotate(120 50 50)"/><ellipse cx="50" cy="35" rx="9" ry="17" transform="rotate(180 50 50)"/><ellipse cx="50" cy="35" rx="9" ry="17" transform="rotate(240 50 50)"/><ellipse cx="50" cy="35" rx="9" ry="17" transform="rotate(300 50 50)"/></g><circle cx="50" cy="50" r="5" fill="#d8c788"/></svg></div>
+    <canvas id="signatureCanvas" aria-hidden="true"></canvas>
+    <p class="signature-copy"><span class="signature-name">朱政鹏</span><span class="signature-motto">知行合一 · 止于至善</span></p>
+    <div class="signature-footer" aria-hidden="true">一缕茉莉香，一份赤子心</div>
+    <button type="button" class="signature-skip">跳过开场 ↗</button>
+  </div>
+  <script>
+    // Activate before the resume is painted; with JavaScript disabled it stays hidden.
+    document.getElementById('signatureIntro').hidden = false;
+    document.body.classList.add('signature-entering');
+  </script>
+
+
+  <!-- =========================================================
+       COSMIC BACKGROUND
+       ========================================================= -->
+  <canvas id="cosmicCanvas" aria-hidden="true"></canvas>
+  <div class="cosmic-glow" aria-hidden="true"></div>
+  <div class="cosmic-vignette" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark">
+          <img src="images/头像帅照.jpg" alt="朱政鹏的头像" />
+        </span>
+        <span>朱政鹏 · Resume</span>
+      </a>
+
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#highlights">亮点</a>
+        <a href="#experience">经历</a>
+        <a href="#projects">项目</a>
+        <a href="#skills">技能</a>
+        <a href="#education">教育</a>
+        <a href="#honors">荣誉</a>
+        <a href="#contact">联系</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="printBtn" type="button" aria-label="打印简历" title="打印 / 导出 PDF">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9V3h12v6"/>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="7" rx="1"/>
+            <circle cx="17.5" cy="11.5" r=".4" fill="currentColor" stroke="none"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" style="position:relative">
+      <div class="jasmine-deco jasmine-deco--hero" aria-hidden="true">
+        <svg viewBox="0 0 40 44">
+          <g fill="#7cb587">
+            <path d="M20 30 C14 30 10 33 8 38 C14 38 19 35 20 30Z" opacity=".9"/>
+            <path d="M20 30 C26 30 30 33 32 38 C26 38 21 35 20 30Z" opacity=".9"/>
+          </g>
+          <g fill="#ffffff" stroke="#84a98c" stroke-width=".8" stroke-opacity=".55">
+            <g transform="rotate(0 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+            <g transform="rotate(72 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+            <g transform="rotate(144 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+            <g transform="rotate(216 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+            <g transform="rotate(288 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+          </g>
+          <circle cx="20" cy="22" r="4.4" fill="#f4cd50"/>
+          <circle cx="20" cy="22" r="4.4" fill="none" stroke="#d9a92e" stroke-width=".6" stroke-opacity=".6"/>
+        </svg>
+      </div>
+      <div class="jasmine-deco jasmine-deco--hero2" aria-hidden="true">
+        <svg viewBox="0 0 40 44">
+          <g fill="#7cb587">
+            <path d="M20 30 C14 30 10 33 8 38 C14 38 19 35 20 30Z" opacity=".9"/>
+            <path d="M20 30 C26 30 30 33 32 38 C26 38 21 35 20 30Z" opacity=".9"/>
+          </g>
+          <g fill="#ffffff" stroke="#84a98c" stroke-width=".8" stroke-opacity=".55">
+            <g transform="rotate(0 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+            <g transform="rotate(72 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+            <g transform="rotate(144 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+            <g transform="rotate(216 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+            <g transform="rotate(288 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+          </g>
+          <circle cx="20" cy="22" r="4.4" fill="#f4cd50"/>
+          <circle cx="20" cy="22" r="4.4" fill="none" stroke="#d9a92e" stroke-width=".6" stroke-opacity=".6"/>
+        </svg>
+      </div>
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">UNDERGRADUATE · MICROELECTRONICS</div>
+
+          <h1>
+            朱政鹏
+            <br />
+            <span class="gradient-text">逻辑 × 编程 × 表达</span>
+          </h1>
+
+          <div class="hero-title">辽宁大学 · 微电子科学与工程 · 本科大一在读</div>
+
+          <p class="hero-desc">
+            共青团员，曾任班长与团支部组织委员，具备班级管理与活动组织经验。
+            对编程与逻辑思辨保持长期兴趣，熟练使用 Python，擅长 PPT 逻辑排版与内容可视化，
+            同时热爱辩论与观点表达。希望在大学阶段持续探索微电子硬件与编程结合的方向，
+            用技术能力与沟通能力完成有价值的实践。
+          </p>
+
+          <div class="badges" aria-label="核心技能">
+            <span class="badge">Python</span>
+            <span class="badge">PPT / 信息可视化</span>
+            <span class="badge">逻辑思辨</span>
+            <span class="badge">公开表达</span>
+            <span class="badge">C 语言基础</span>
+            <span class="badge">班长 · 团支委</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">联系我 →</a>
+            <button class="btn btn-ghost" id="copyEmailBtn" type="button">复制邮箱</button>
+            <button class="btn btn-ghost" id="copyPhoneBtn" type="button">复制电话</button>
+          </div>
+
+          <blockquote class="motto" aria-label="座右铭：知行合一，止于至善">
+            <span class="motto-ornament" aria-hidden="true"></span>
+            <span class="motto-text">知行合一 · 止于至善</span>
+            <span class="motto-ornament" aria-hidden="true"></span>
+          </blockquote>
+        </div>
+
+        <aside class="profile-card reveal" aria-label="个人信息">
+          <div class="avatar">
+            <img src="images/头像帅照.jpg" alt="朱政鹏的头像照片" />
+          </div>
+          <div class="profile-name">朱政鹏</div>
+          <div class="profile-sub">Microelectronics · Student</div>
+
+          <div class="quick-info">
+            <div class="quick-row">
+              <span>院校</span>
+              <span>辽宁大学</span>
+            </div>
+            <div class="quick-row">
+              <span>专业</span>
+              <span>微电子科学与工程</span>
+            </div>
+            <div class="quick-row">
+              <span>学历</span>
+              <span>本科 · 大一</span>
+            </div>
+            <div class="quick-row">
+              <span>政治面貌</span>
+              <span style="color:var(--primary)">共青团员</span>
+            </div>
+            <div class="quick-row">
+              <span>状态</span>
+              <span style="color:var(--success)">开放校园机会</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="highlights">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Highlights</div>
+            <h2>30 秒看懂我的优势</h2>
+            <p class="section-desc">基于当前阶段真实能力呈现，不虚构尚未获得的经历与奖项。</p>
+          </div>
+        </div>
+
+        <div class="highlights" id="highlightsGrid"></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Experience</div>
+            <h2>经历与校园意向</h2>
+            <p class="section-desc">具备中学阶段学生干部经历，大学阶段以校园发展与技能深耕为主。</p>
+          </div>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="经历分类">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="exp-campus" id="exp-tab-campus">校园意向</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="exp-work" id="exp-tab-work" tabindex="-1">工作 / 实习</button>
+        </div>
+
+        <div class="tab-panel" id="exp-campus" role="tabpanel" aria-labelledby="exp-tab-campus">
+          <div class="timeline" id="campusTimeline"></div>
+        </div>
+
+        <div class="tab-panel" id="exp-work" role="tabpanel" aria-labelledby="exp-tab-work" hidden>
+          <div class="card">
+            <div class="project-icon">＋</div>
+            <div class="project-title">待补充正式经历</div>
+            <div class="project-desc">
+              当前暂无正式工作或实习经历。后续如参与学生组织、校园项目、竞赛、志愿活动或实习，
+              可在此补充具体时间、职责与成果。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Projects</div>
+            <h2>项目与实践方向</h2>
+            <p class="section-desc">目前以学习型、小型实践为主要目标，后续项目完成后可持续更新。</p>
+          </div>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="项目分类">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="project-learning" id="project-tab-learning">学习实践</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="project-plan" id="project-tab-plan" tabindex="-1">未来规划</button>
+        </div>
+
+        <div class="tab-panel" id="project-learning" role="tabpanel" aria-labelledby="project-tab-learning">
+          <div class="project-grid" id="projectGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="project-plan" role="tabpanel" aria-labelledby="project-tab-plan" hidden>
+          <div class="project-grid" id="planGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Skills</div>
+            <h2>技能矩阵</h2>
+            <p class="section-desc">进度仅用于表达当前熟练度，不代表证书或专业资质。</p>
+          </div>
+        </div>
+
+        <div class="skills-layout" id="skillsGrid"></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Education</div>
+            <h2>教育背景</h2>
+          </div>
+        </div>
+
+        <div class="edu-grid">
+          <div class="education-card" id="educationCard"></div>
+
+          <div class="about-card">
+            <h3>获奖经历</h3>
+            <p>
+              已获东北辩联辩论赛三等奖、中小学生华语辩论赛三等奖，
+              达摩院人工智能训练师（初级 / 高级）、Alibaba Cloud 专项技能认证，
+              并获评 2026 届优秀毕业生。
+            </p>
+            <p>
+              完整奖项列表与证书照片请见下方
+              <a href="#honors" style="color:var(--primary);font-weight:700">「奖项与荣誉」</a>
+              栏目。
+            </p>
+            <div class="badges" style="margin:15px 0 0">
+              <span class="badge">辩论 · 三等奖 ×2</span>
+              <span class="badge">AI 训练师认证</span>
+              <span class="badge">阿里云认证</span>
+              <span class="badge">优秀毕业生</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">About</div>
+            <h2>关于我</h2>
+          </div>
+        </div>
+
+        <div class="about-card" id="aboutCard"></div>
+      </div>
+    </section>
+
+    <section id="honors">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Honors & Awards</div>
+            <h2>奖项与荣誉</h2>
+            <p class="section-desc">辩论赛场的历练与人工智能方向的专业认证 —— 点击「查看证书」可查看原件。</p>
+          </div>
+        </div>
+
+        <div class="honor-grid">
+          <article class="honor-card">
+            <div class="honor-badge honor-badge--debate" aria-hidden="true">辩</div>
+            <div class="honor-body">
+              <div class="honor-tag">辩论赛事 · 三等奖</div>
+              <div class="honor-title">东北辩联辩论赛 · 三等奖</div>
+              <div class="honor-desc">东北高校辩论联赛，团队参赛并获得三等奖，锻炼了临场思辨与公开表达。</div>
+            </div>
+            <button class="cert-btn" type="button"
+                    data-cert="images/cert-1.jpg"
+                    data-title="东北辩联辩论赛 · 三等奖">查看证书 →</button>
+          </article>
+
+          <article class="honor-card">
+            <div class="honor-badge honor-badge--debate" aria-hidden="true">辩</div>
+            <div class="honor-body">
+              <div class="honor-tag">辩论赛事 · 三等奖</div>
+              <div class="honor-title">中小学生华语辩论赛 · 三等奖</div>
+              <div class="honor-desc">华语辩论赛事中获三等奖，积累了辩题拆解、逻辑论证与团队配合经验。</div>
+            </div>
+            <button class="cert-btn" type="button"
+                    data-cert="images/cert-2.jpg"
+                    data-title="中小学生华语辩论赛 · 三等奖">查看证书 →</button>
+          </article>
+
+          <article class="honor-card">
+            <div class="honor-badge honor-badge--ai" aria-hidden="true">AI</div>
+            <div class="honor-body">
+              <div class="honor-tag">达摩院认证 · 初级</div>
+              <div class="honor-title">达摩院人工智能训练师（初级）</div>
+              <div class="honor-desc">阿里巴巴达摩院认证，掌握人工智能训练基础流程与数据标注、模型调优入门能力。</div>
+            </div>
+            <button class="cert-btn" type="button"
+                    data-cert="images/cert-3.jpg"
+                    data-title="达摩院人工智能训练师（初级）">查看证书 →</button>
+          </article>
+
+          <article class="honor-card">
+            <div class="honor-badge honor-badge--ai" aria-hidden="true">AI</div>
+            <div class="honor-body">
+              <div class="honor-tag">达摩院认证 · 高级</div>
+              <div class="honor-title">达摩院人工智能训练师（高级）</div>
+              <div class="honor-desc">阿里巴巴达摩院高级认证，具备 AI 训练方案设计与智能客服等场景的实践能力。</div>
+            </div>
+            <button class="cert-btn" type="button"
+                    data-cert="images/cert-4.jpg"
+                    data-title="达摩院人工智能训练师（高级）">查看证书 →</button>
+          </article>
+
+          <article class="honor-card">
+            <div class="honor-badge honor-badge--cloud" aria-hidden="true">云</div>
+            <div class="honor-body">
+              <div class="honor-tag">阿里云认证 · 有效期至 2028</div>
+              <div class="honor-title">Alibaba Cloud Certification</div>
+              <div class="honor-desc">阿里云 Apsara Clouder 专项技能认证 —— 基于 PAI ArtLab 的 AIGC 设计基础，证书有效期至 2028 年 8 月。</div>
+            </div>
+            <button class="cert-btn" type="button"
+                    data-cert="images/cert-5.png"
+                    data-title="Alibaba Cloud Certification · AIGC 设计基础">查看证书 →</button>
+          </article>
+
+          <article class="honor-card">
+            <div class="honor-badge honor-badge--grad" aria-hidden="true">毕</div>
+            <div class="honor-body">
+              <div class="honor-tag">校级荣誉 · 2026 届</div>
+              <div class="honor-title">优秀毕业生（2026 届）</div>
+              <div class="honor-desc">大连市第二十高级中学颁发，获评 2026 届优秀毕业生，是对高中阶段学业与综合表现的肯定。</div>
+            </div>
+            <button class="cert-btn" type="button"
+                    data-cert="images/cert-6.jpg"
+                    data-title="优秀毕业生 · 2026 届">查看证书 →</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div class="jasmine-deco jasmine-deco--contact" aria-hidden="true">
+            <svg viewBox="0 0 40 44">
+              <g fill="#6ee7b7">
+                <path d="M20 30 C14 30 10 33 8 38 C14 38 19 35 20 30Z" opacity=".9"/>
+                <path d="M20 30 C26 30 30 33 32 38 C26 38 21 35 20 30Z" opacity=".9"/>
+              </g>
+              <g fill="#ffffff" stroke="#a7f3d0" stroke-width=".8" stroke-opacity=".7">
+                <g transform="rotate(0 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+                <g transform="rotate(72 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+                <g transform="rotate(144 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+                <g transform="rotate(216 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+                <g transform="rotate(288 20 22)"><ellipse cx="20" cy="12.5" rx="4.6" ry="8.4"/></g>
+              </g>
+              <circle cx="20" cy="22" r="4.4" fill="#f4cd50"/>
+            </svg>
+          </div>
+          <div>
+            <div class="section-kicker" style="color:#67e8f9">Contact</div>
+            <h2>期待一次认识我的机会。</h2>
+            <p>
+              适合社团面试、学生会招新、校内竞赛、校园项目及学生实践机会。
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <button class="btn" id="contactEmailBtn" type="button">复制邮箱</button>
+            <button class="btn" id="contactPhoneBtn" type="button">复制电话</button>
+            <a class="btn" href="#top">返回顶部 ↑</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> 朱政鹏 · Personal Resume
+      <span style="margin:0 5px">·</span>
+      最后更新：2026-09
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="照片放大预览">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+    <img id="lightboxImg" src="" alt="放大查看的照片" />
+    <div class="lightbox-fallback" id="lightboxFallback">
+      <strong>证书照片还未放入</strong>
+      <span id="lightboxFallbackText"></span>
+    </div>
+    <div class="lightbox-hint">点击任意处或按 Esc 关闭</div>
+  </div>
+
+  <div id="jasmineCursor" aria-hidden="true">
+    <svg viewBox="0 0 40 44">
+      <g fill="#7cb587">
+        <path d="M20 30 C14 30 10 33 8 38 C14 38 19 35 20 30Z" opacity=".95"/>
+        <path d="M20 30 C26 30 30 33 32 38 C26 38 21 35 20 30Z" opacity=".95"/>
+      </g>
+      <g fill="#ffffff" stroke="#84a98c" stroke-width=".9" stroke-opacity=".6">
+        <g transform="rotate(0 20 22)"><ellipse cx="20" cy="12.5" rx="4.7" ry="8.6"/></g>
+        <g transform="rotate(72 20 22)"><ellipse cx="20" cy="12.5" rx="4.7" ry="8.6"/></g>
+        <g transform="rotate(144 20 22)"><ellipse cx="20" cy="12.5" rx="4.7" ry="8.6"/></g>
+        <g transform="rotate(216 20 22)"><ellipse cx="20" cy="12.5" rx="4.7" ry="8.6"/></g>
+        <g transform="rotate(288 20 22)"><ellipse cx="20" cy="12.5" rx="4.7" ry="8.6"/></g>
+      </g>
+      <circle cx="20" cy="22" r="4.6" fill="#f4cd50"/>
+      <circle cx="20" cy="22" r="4.6" fill="none" stroke="#d9a92e" stroke-width=".7" stroke-opacity=".65"/>
+    </svg>
+  </div>
+
+  <button class="back-top" id="backTop" type="button" aria-label="返回顶部">↑</button>
+
+  <!-- 背景音乐播放入口 -->
+  <audio id="bgMusic" src="music/箱底茉莉香.mp3" loop preload="none"></audio>
+
+  <div class="music-player" id="musicPlayer">
+    <span class="music-note music-note-1" aria-hidden="true">♪</span>
+    <span class="music-note music-note-2" aria-hidden="true">♫</span>
+    <span class="music-note music-note-3" aria-hidden="true">♩</span>
+
+    <button class="music-disc" id="musicToggle" type="button"
+            aria-label="播放背景音乐《箱底茉莉香》" title="播放 / 暂停音乐">
+      <span class="disc-halo" aria-hidden="true"></span>
+      <span class="disc-ring" aria-hidden="true">
+        <span class="disc-dot"></span>
+        <span class="disc-dot"></span>
+        <span class="disc-dot"></span>
+      </span>
+      <span class="disc-face">
+        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8 5.5v13l11-6.5z" fill="currentColor"/>
+        </svg>
+        <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="6.5" y="5" width="3.6" height="14" rx="1.1" fill="currentColor"/>
+          <rect x="13.9" y="5" width="3.6" height="14" rx="1.1" fill="currentColor"/>
+        </svg>
+      </span>
+    </button>
+
+    <div class="music-panel" id="musicPanel">
+      <button class="music-info" id="musicInfo" type="button"
+              aria-label="展开音量调节" title="音量调节">
+        <span class="music-title">箱底茉莉香</span>
+        <span class="music-eq" aria-hidden="true">
+          <i></i><i></i><i></i><i></i>
+        </span>
+      </button>
+      <div class="music-vol">
+        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true">
+          <path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4z" fill="currentColor"/>
+          <path d="M15.5 9.2a3.4 3.4 0 0 1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <input type="range" id="musicVolume" min="0" max="100" value="30"
+               aria-label="背景音乐音量" />
+      </div>
+    </div>
+  </div>
+  <!-- 背景音乐：进入页面时的询问弹窗 -->
+  <div class="music-ask" id="musicAsk" aria-hidden="true">
+    <div class="music-ask-mask" data-ask-close></div>
+    <div class="music-ask-card" role="dialog" aria-modal="true"
+         aria-labelledby="musicAskTitle" aria-describedby="musicAskDesc">
+      <span class="ask-ai-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z"/>
+          <path d="M19 14l.9 2.6L22.5 17.5l-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z" opacity=".75"/>
+        </svg>
+        运用 AI 自创
+      </span>
+      <div class="ask-flower" aria-hidden="true">
+        <svg viewBox="0 0 60 60" width="64" height="64">
+          <g class="ask-flower-spin">
+            <g fill="#f4fbf6" stroke="#c9e8d6" stroke-width="1.2">
+              <ellipse cx="30" cy="15" rx="7.5" ry="11.5"/>
+              <ellipse cx="30" cy="45" rx="7.5" ry="11.5"/>
+              <ellipse cx="15" cy="30" rx="11.5" ry="7.5"/>
+              <ellipse cx="45" cy="30" rx="11.5" ry="7.5"/>
+              <ellipse cx="19.4" cy="19.4" rx="7.5" ry="10.6" transform="rotate(-45 19.4 19.4)"/>
+              <ellipse cx="40.6" cy="40.6" rx="7.5" ry="10.6" transform="rotate(-45 40.6 40.6)"/>
+              <ellipse cx="40.6" cy="19.4" rx="7.5" ry="10.6" transform="rotate(45 40.6 19.4)"/>
+              <ellipse cx="19.4" cy="40.6" rx="7.5" ry="10.6" transform="rotate(45 19.4 40.6)"/>
+            </g>
+          </g>
+          <circle cx="30" cy="30" r="5.6" fill="#e8c85e" stroke="#c9a93f" stroke-width="1"/>
+        </svg>
+        <span class="ask-flower-glow" aria-hidden="true"></span>
+      </div>
+
+      <h3 class="ask-title" id="musicAskTitle">开启背景音乐？</h3>
+      <p class="ask-desc" id="musicAskDesc">
+        《箱底茉莉香》· 低音量循环播放<br>
+        让清浅的旋律，陪你看完这份简历
+      </p>
+
+      <div class="ask-actions">
+        <button class="ask-btn ask-yes" id="askYes" type="button" autofocus>
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+            <path d="M8 5.5v13l11-6.5z" fill="currentColor"/>
+          </svg>
+          播放音乐
+        </button>
+        <button class="ask-btn ask-no" id="askNo" type="button" data-ask-close>
+          暂不开启
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    /* =========================================================
+       Resume Data
+       ========================================================= */
+    const resume = {
+      basic: {
+        name: "朱政鹏",
+        gender: "男",
+        education: "本科大一在读",
+        school: "辽宁大学",
+        major: "微电子科学与工程",
+        phone: "19909864829",
+        email: "zzpxxzj@qq.com",
+        period: "2026-09 — 至今"
+      },
+
+      highlights: [
+        {
+          number: "坦克",
+          label: "代表作品 · 坦克大战",
+          text: "独立开发网页版《坦克大战》：Canvas 画面、键盘操控、子弹碰撞与关卡逻辑，完整可玩",
+          link: "https://tkdz12.netlify.app",
+          cta: "点开可玩"
+        },
+        {
+          number: "茉莉",
+          label: "生活爱好",
+          text: "喜爱茉莉的清雅芬芳，也爱把自然之美融进设计与代码，保持清新专注",
+          link: "https://molihua1.netlify.app",
+          cta: "点开赏花"
+        },
+        {
+          number: "Python",
+          label: "编程基础",
+          text: "可完成基础脚本与简单数据处理，独立写出《坦克大战》小游戏"
+        },
+        {
+          number: "C",
+          label: "C 语言 · 入门人格",
+          text: "指针、内存、结构体逐个攻克 —— 入门选手的倔强：代码越虐越上头"
+        },
+        {
+          number: "PPT",
+          label: "演示设计",
+          text: "擅长逻辑排版、页面美化与内容可视化"
+        },
+        {
+          number: "高能量",
+          label: "高能量人格",
+          text: "精力充沛、说干就干，习惯把想法立刻变成行动，用作品说话"
+        },
+        {
+          number: "3×",
+          label: "能力交叉",
+          text: "编程 × 思辨 × 表达，多维能力组合"
+        },
+        {
+          number: "∞",
+          label: "成长潜力",
+          text: "大一阶段，持续学习与实践空间充足"
+        }
+      ],
+
+      campusExperience: [
+        {
+          title: "班长",
+          company: "班级学生干部",
+          time: "中学阶段",
+          description: "担任班长，统筹班级日常事务，负责学风建设、师生沟通与班级活动组织，培养组织协调与责任意识。",
+          points: [
+            "统筹班级日常事务，协调学习、纪律与活动安排",
+            "搭建师生沟通桥梁，及时传达并落实学校要求",
+            "组织班级集体活动，增强凝聚力与集体荣誉感"
+          ]
+        },
+        {
+          title: "团支部组织委员",
+          company: "共青团支部",
+          time: "中学阶段",
+          description: "担任团支部组织委员，负责团支部组织建设与团日活动的策划开展，落实团员发展与教育管理工作。",
+          points: [
+            "策划并组织开展主题团日活动，丰富团员组织生活",
+            "负责团员发展、组织关系转接与团籍管理",
+            "协助团支书推进团支部思想建设与组织建设"
+          ]
+        },
+        {
+          title: "加入学校辩论社",
+          company: "校园发展意向",
+          time: "计划中",
+          description: "参与队内训练与校内辩论赛，持续锻炼逻辑思辨、临场表达与公开发言能力。",
+          points: [
+            "通过辩题拆解训练多角度分析问题",
+            "强化倾听、论证与现场表达能力",
+            "在团队讨论中清晰梳理并输出观点"
+          ]
+        },
+        {
+          title: "加入计算机 / 编程相关社团",
+          company: "技术成长意向",
+          time: "计划中",
+          description: "继续深耕 Python，并逐步学习项目开发，将编程能力从基础语法推进到实际应用。",
+          points: [
+            "巩固 Python 基础与数据处理能力",
+            "尝试独立完成小型编程实践",
+            "探索编程在微电子仿真与数据处理中的应用"
+          ]
+        },
+        {
+          title: "班级 / 学院汇报展示",
+          company: "校园实践意向",
+          time: "持续进行",
+          description: "积极参与班级、学院汇报展示，利用 PPT 能力完成课程汇报与内容呈现。",
+          points: [
+            "梳理复杂信息并形成清晰汇报结构",
+            "通过视觉层级提升信息传达效率",
+            "锻炼团队协作与公开表达能力"
+          ]
+        }
+      ],
+
+      projects: [
+        {
+          icon: "Py",
+          title: "Python 基础学习实践",
+          stack: "Python · 基础脚本 · 数据处理",
+          description: "围绕变量、循环、条件、函数等基础语法进行持续练习，并尝试将 Python 用于简单的数据处理任务。",
+          result: "当前阶段：持续学习 · 后续将沉淀为可展示的小型项目"
+        },
+        {
+          icon: "P",
+          title: "PPT 信息可视化实践",
+          stack: "PPT · 信息架构 · 视觉设计",
+          description: "将课程与汇报内容进行结构化整理，通过版式、层级、图形与视觉节奏提升演示文稿的表达效果。",
+          result: "能力重点：逻辑排版 + 页面美化 + 内容可视化"
+        }
+      ],
+
+      plans: [
+        {
+          icon: "01",
+          title: "微电子 × Python",
+          stack: "Python · 数据处理 · 微电子",
+          description: "结合专业课程逐步探索 Python 在微电子数据处理、仿真辅助等场景中的应用。",
+          result: "目标：建立专业知识与编程能力之间的连接"
+        },
+        {
+          icon: "02",
+          title: "小型编程项目",
+          stack: "Python · 项目开发",
+          description: "通过社团、课程或自主学习完成真实的小型程序，并逐步学习项目结构、调试与版本管理。",
+          result: "目标：从“会写代码”向“能完成项目”过渡"
+        },
+        {
+          icon: "03",
+          title: "进入大创赛校园队伍",
+          stack: "大学生创新创业训练计划 · 团队协作",
+          description: "争取加入学校大创赛（大学生创新创业训练计划）校园队伍，在真实项目里承担技术或展示工作，和队友一起把想法做成成果。",
+          result: "目标：在团队实战中锻炼项目能力，攒下第一份竞赛经历"
+        }
+      ],
+
+      skills: [
+        {
+          title: "语言",
+          note: "Programming",
+          bars: [
+            ["Python", 72, "熟练 / 持续深入"],
+            ["C Language", 38, "基础学习"]
+          ]
+        },
+        {
+          title: "表达与设计",
+          note: "Communication",
+          bars: [
+            ["PPT 制作", 88, "优势能力"],
+            ["逻辑表达", 84, "优势能力"]
+          ]
+        },
+        {
+          title: "思辨能力",
+          note: "Critical Thinking",
+          bars: [
+            ["观点拆解", 86, "优势能力"],
+            ["临场表达", 82, "优势能力"]
+          ]
+        },
+        {
+          title: "工具与方向",
+          note: "Tools & Domain",
+          tags: [
+            "PowerPoint",
+            "Python",
+            "C",
+            "信息可视化",
+            "微电子",
+            "数据处理",
+            "辩论",
+            "团队协作"
+          ]
+        }
+      ],
+
+      education: {
+        school: "辽宁大学",
+        major: "微电子科学与工程",
+        degree: "本科",
+        period: "2026-09 — 至今",
+        description: [
+          "大一新生，系统开始学习工科基础课程，包含高等数学、C 语言程序设计等，打下理工科逻辑基础。",
+          "未来规划：深耕微电子硬件与编程结合方向，兼顾学科学习与综合素质提升。"
+        ]
+      },
+
+      about: "共青团员，辽宁大学微电子科学与工程专业大一在读，做事严谨、热爱逻辑思考。曾任班长与团支部组织委员，具备班级管理、活动策划与组织协调经验。对编程抱有浓厚兴趣，熟练掌握 Python，愿意持续钻研技术；同时热爱辩论，长期锻炼逻辑思维与表达能力。学习上踏实自律，团队协作中善于倾听与理性沟通，愿将编程能力与思辨能力结合，积极参与学生工作与学科实践，持续自我提升。"
+    };
+
+    /* =========================================================
+       Helpers
+       ========================================================= */
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function showToast(message) {
+      const toast = $("#toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 1800);
+    }
+
+    async function copyText(text, label) {
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast(label + "已复制");
+      } catch {
+        const input = document.createElement("textarea");
+        input.value = text;
+        input.style.position = "fixed";
+        input.style.opacity = "0";
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("copy");
+        input.remove();
+        showToast(label + "已复制");
+      }
+    }
+
+    /* =========================================================
+       Render
+       ========================================================= */
+    function renderHighlights() {
+      const grid = $("#highlightsGrid");
+      resume.highlights.forEach(item => {
+        let card;
+
+        if (item.link) {
+          card = document.createElement("a");
+          card.className = "highlight highlight-link";
+          card.href = item.link;
+          card.target = "_blank";
+          card.rel = "noopener";
+        } else {
+          card = el("article", "highlight");
+        }
+
+        card.append(
+          el("div", "highlight-number", item.number),
+          el("div", "highlight-label", item.label),
+          el("div", "highlight-text", item.text)
+        );
+
+        if (item.cta) {
+          card.append(el("span", "highlight-cta", item.cta + " →"));
+        }
+
+        grid.appendChild(card);
+      });
+    }
+
+    function renderTimeline() {
+      const timeline = $("#campusTimeline");
+
+      resume.campusExperience.forEach(item => {
+        const article = el("article", "timeline-item");
+        const dot = el("span", "timeline-dot");
+        const top = el("div", "item-top");
+
+        const left = el("div");
+        left.append(
+          el("div", "item-title", item.title),
+          el("div", "item-company", item.company)
+        );
+
+        top.append(left, el("div", "item-time", item.time));
+
+        const desc = el("p", "item-desc", item.description);
+        const list = el("ul", "item-list");
+
+        item.points.forEach(point => list.appendChild(el("li", null, point)));
+
+        article.append(dot, top, desc, list);
+        timeline.appendChild(article);
+      });
+    }
+
+    function renderProjects(items, targetId) {
+      const grid = $("#" + targetId);
+
+      items.forEach(item => {
+        const card = el("article", "card");
+        const icon = el("div", "project-icon", item.icon);
+        const title = el("div", "project-title", item.title);
+        const stack = el("div", "project-stack", item.stack);
+        const desc = el("div", "project-desc", item.description);
+        const result = el("div", "project-result");
+
+        const strong = el("strong", null, "结果 / 状态：");
+        result.append(strong, document.createTextNode(item.result));
+
+        card.append(icon, title, stack, desc, result);
+        grid.appendChild(card);
+      });
+    }
+
+    function renderSkills() {
+      const grid = $("#skillsGrid");
+
+      resume.skills.forEach(group => {
+        const card = el("div", "skill-group");
+        const heading = el("div", "skill-heading");
+        heading.append(
+          document.createTextNode(group.title),
+          el("span", null, group.note)
+        );
+        card.appendChild(heading);
+
+        if (group.bars) {
+          group.bars.forEach(([name, value, note]) => {
+            const skill = el("div", "skill");
+            const meta = el("div", "skill-meta");
+            meta.append(
+              el("span", null, name),
+              el("span", null, note)
+            );
+
+            const progress = el("div", "progress");
+            const bar = document.createElement("i");
+            bar.style.setProperty("--value", value + "%");
+            progress.appendChild(bar);
+
+            skill.append(meta, progress);
+            card.appendChild(skill);
+          });
+        }
+
+        if (group.tags) {
+          const tags = el("div", "skill-tags");
+          group.tags.forEach(tag => tags.appendChild(el("span", "skill-tag", tag)));
+          card.appendChild(tags);
+        }
+
+        grid.appendChild(card);
+      });
+    }
+
+    function renderEducation() {
+      const card = $("#educationCard");
+      const e = resume.education;
+
+      card.append(
+        el("div", "school", e.school),
+        el("div", "major", e.major + " · " + e.degree),
+        el("div", "edu-time", e.period)
+      );
+
+      e.description.forEach(text => {
+        card.appendChild(el("p", null, "• " + text));
+      });
+    }
+
+    function renderAbout() {
+      const card = $("#aboutCard");
+      const p = el("p", null, resume.about);
+      p.style.fontSize = "14px";
+      p.style.lineHeight = "1.9";
+      card.appendChild(p);
+    }
+
+    /* =========================================================
+       Tabs: ARIA + keyboard
+       ========================================================= */
+    function setupTabs() {
+      $$(".tabs").forEach(tabList => {
+        const tabs = $$('[role="tab"]', tabList);
+
+        tabs.forEach((tab, index) => {
+          tab.addEventListener("click", () => activateTab(tabs, tab));
+
+          tab.addEventListener("keydown", e => {
+            if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
+
+            e.preventDefault();
+
+            let nextIndex = index;
+            if (e.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+            if (e.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+            if (e.key === "Home") nextIndex = 0;
+            if (e.key === "End") nextIndex = tabs.length - 1;
+
+            tabs[nextIndex].focus();
+            activateTab(tabs, tabs[nextIndex]);
+          });
+        });
+      });
+    }
+
+    function activateTab(tabs, activeTab) {
+      tabs.forEach(tab => {
+        const selected = tab === activeTab;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+
+        const panel = document.getElementById(tab.getAttribute("aria-controls"));
+        if (panel) panel.hidden = !selected;
+      });
+    }
+
+    /* =========================================================
+       Theme（固定深色星空主题）
+       ========================================================= */
+    function setupTheme() {
+      setTheme("dark");
+    }
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = "dark";
+    }
+
+    /* =========================================================
+       Navigation / Scroll
+       ========================================================= */
+    function setupNavigation() {
+      const links = $$(".nav-links a");
+      const sections = links
+        .map(link => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            links.forEach(link => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === "#" + entry.target.id
+              );
+            });
+          }
+        });
+      }, {
+        rootMargin: "-35% 0px -55% 0px",
+        threshold: 0
+      });
+
+      sections.forEach(section => observer.observe(section));
+
+      const backTop = $("#backTop");
+
+      window.addEventListener("scroll", () => {
+        backTop.classList.toggle("show", window.scrollY > 500);
+      }, { passive: true });
+
+      backTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    /* =========================================================
+       Buttons
+       ========================================================= */
+    function setupActions() {
+      const email = resume.basic.email;
+      const phone = resume.basic.phone;
+
+      $("#copyEmailBtn").addEventListener("click", () => copyText(email, "邮箱"));
+      $("#copyPhoneBtn").addEventListener("click", () => copyText(phone, "电话"));
+      $("#contactEmailBtn").addEventListener("click", () => copyText(email, "邮箱"));
+      $("#contactPhoneBtn").addEventListener("click", () => copyText(phone, "电话"));
+
+      $("#printBtn").addEventListener("click", () => {
+        window.print();
+      });
+
+      $("#year").textContent = new Date().getFullYear();
+    }
+
+    /* =========================================================
+       Lightbox 照片放大
+       ========================================================= */
+    function setupLightbox() {
+      const box = $("#lightbox");
+      const boxImg = $("#lightboxImg");
+      const caption = $("#lightboxCaption");
+      const fallback = $("#lightboxFallback");
+      const fallbackText = $("#lightboxFallbackText");
+      if (!box) return;
+
+      const open = (src, title, needCert) => {
+        caption.textContent = title || "";
+        fallback.classList.remove("show");
+        boxImg.style.display = "block";
+
+        boxImg.onload = () => {
+          fallback.classList.remove("show");
+          boxImg.style.display = "block";
+        };
+
+        boxImg.onerror = () => {
+          boxImg.style.display = "none";
+          if (needCert) {
+            const fileName = src.split("/").pop();
+            fallbackText.textContent =
+              "请将证书照片命名为 " + fileName +
+              "（或同名 .png）放入 images 文件夹后刷新页面。";
+            fallback.classList.add("show");
+          }
+        };
+
+        boxImg.src = src;
+        box.classList.add("show");
+        box.setAttribute("aria-hidden", "false");
+      };
+
+      $$(".cert-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          open(btn.dataset.cert, btn.dataset.title, true);
+        });
+      });
+
+      const close = () => {
+        box.classList.remove("show");
+        box.setAttribute("aria-hidden", "true");
+      };
+
+      box.addEventListener("click", close);
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") close();
+      });
+    }
+
+    /* =========================================================
+       背景音乐《箱底茉莉香》· 询问弹窗 + 播放控制
+       ========================================================= */
+    function setupMusic() {
+      const audio = $("#bgMusic");
+      const player = $("#musicPlayer");
+      const toggle = $("#musicToggle");
+      const info = $("#musicInfo");
+      const volume = $("#musicVolume");
+      const ask = $("#musicAsk");
+      const askYes = $("#askYes");
+      const askNo = $("#askNo");
+      if (!audio || !toggle) return;
+
+      const INITIAL_VOLUME = .3;               // 初始音量小一些
+      audio.volume = INITIAL_VOLUME;
+      audio.loop = true;
+
+      /* ---------- UI 同步 ---------- */
+      const syncUI = playing => {
+        player.classList.toggle("playing", playing);
+        toggle.setAttribute("aria-pressed", String(playing));
+        toggle.setAttribute("aria-label",
+          playing ? "暂停背景音乐《箱底茉莉香》"
+                  : "播放背景音乐《箱底茉莉香》");
+      };
+
+      const play = () => {
+        audio.preload = "auto";               // 确认播放后再开始缓冲
+        return audio.play()
+          .then(() => syncUI(true))
+          .catch(() => syncUI(false));
+      };
+      const pause = () => { audio.pause(); syncUI(false); };
+
+      let userPaused = false;
+
+      /* ---------- 询问弹窗（每次进入都询问） ---------- */
+      const showAsk = () => {
+        ask.classList.add("show");
+        ask.setAttribute("aria-hidden", "false");
+      };
+      const hideAsk = () => {
+        ask.classList.remove("show");
+        ask.setAttribute("aria-hidden", "true");
+      };
+
+      const answer = yes => {
+        hideAsk();
+        if (yes) {
+          userPaused = false;
+          play();                             // 用户点击手势内，必定能播
+        }
+      };
+
+      askYes.addEventListener("click", () => answer(true));
+      askNo.addEventListener("click", () => answer(false));
+      ask.querySelectorAll("[data-ask-close]").forEach(el => {
+        el.addEventListener("click", hideAsk); // 点遮罩：仅关闭，本次不播
+      });
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape" && ask.classList.contains("show")) hideAsk();
+      });
+
+      /* ---------- 左下角唱片：播放 / 暂停 ---------- */
+      toggle.addEventListener("click", () => {
+        if (audio.paused) {
+          userPaused = false;
+          play();
+        } else {
+          userPaused = true;
+          pause();
+        }
+      });
+
+      audio.addEventListener("play", () => syncUI(true));
+      audio.addEventListener("pause", () => syncUI(false));
+
+      /* ---------- 启动策略：每次进入页面都弹窗询问 ---------- */
+      if (document.body.classList.contains('signature-entering')) {
+        document.addEventListener('signature:complete', () => setTimeout(showAsk, 700), { once: true });
+      } else {
+        setTimeout(showAsk, 700);
+      }
+
+      /* ---------- 音量滑块 ---------- */
+      const paintVolume = v => {
+        volume.style.setProperty("--vol", v + "%");
+      };
+      paintVolume(Number(volume.value));
+
+      volume.addEventListener("input", () => {
+        audio.volume = Number(volume.value) / 100;
+        paintVolume(volume.value);
+      });
+
+      /* 点歌名：固定展开音量面板（方便触屏调音量） */
+      info.addEventListener("click", () => {
+        player.classList.toggle("pinned");
+      });
+    }
+
+    /* =========================================================
+       Boot
+       ========================================================= */
+    function init() {
+      renderHighlights();
+      renderTimeline();
+      renderProjects(resume.projects, "projectGrid");
+      renderProjects(resume.plans, "planGrid");
+      renderSkills();
+      renderEducation();
+      renderAbout();
+
+      setupTabs();
+      setupTheme();
+      setupNavigation();
+      setupActions();
+      setupLightbox();
+      setupMusic();
+    }
+
+    init();
+  </script>
+
+  <script>
+    /* =========================================================
+       COSMIC STARFIELD ENGINE
+       12 星座 · 流星 · 鼠标星闪 · 宇宙漂移
+       ========================================================= */
+    (function CosmicStarfield() {
+
+      const canvas = document.getElementById("cosmicCanvas");
+      if (!canvas) return;
+
+      const ctx = canvas.getContext("2d");
+
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      let stars = [];
+      let meteors = [];
+      let constellationStars = [];
+      let labels = [];
+      let sparks = [];
+      let petals = [];
+      let blooms = [];
+      let feathers = [];
+
+      const mouse = {
+        x: width / 2,
+        y: height / 2,
+        active: false
+      };
+
+      const isDark = () =>
+        document.documentElement.dataset.theme === "dark";
+
+      let time = 0;
+
+      const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* ---------------------------------------------------------
+         12 CONSTELLATIONS
+         --------------------------------------------------------- */
+      const constellations = [
+        {
+          name: "白羊座",
+          en: "ARIES",
+          points: [
+            [0.12, 0.18],
+            [0.15, 0.15],
+            [0.18, 0.17],
+            [0.21, 0.13]
+          ],
+          lines: [[0,1],[1,2],[2,3]]
+        },
+        {
+          name: "金牛座",
+          en: "TAURUS",
+          points: [
+            [0.30, 0.13],
+            [0.34, 0.10],
+            [0.37, 0.15],
+            [0.40, 0.19],
+            [0.44, 0.17]
+          ],
+          lines: [[0,1],[1,2],[2,3],[3,4]]
+        },
+        {
+          name: "双子座",
+          en: "GEMINI",
+          points: [
+            [0.58, 0.10],
+            [0.61, 0.18],
+            [0.60, 0.26],
+            [0.66, 0.11],
+            [0.68, 0.19],
+            [0.67, 0.27]
+          ],
+          lines: [[0,1],[1,2],[3,4],[4,5],[0,3],[1,4]]
+        },
+        {
+          name: "巨蟹座",
+          en: "CANCER",
+          points: [
+            [0.80, 0.12],
+            [0.84, 0.16],
+            [0.87, 0.13],
+            [0.90, 0.18]
+          ],
+          lines: [[0,1],[1,2],[2,3]]
+        },
+        {
+          name: "狮子座",
+          en: "LEO",
+          points: [
+            [0.10, 0.40],
+            [0.14, 0.36],
+            [0.18, 0.40],
+            [0.22, 0.47],
+            [0.18, 0.53],
+            [0.13, 0.51]
+          ],
+          lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,0]]
+        },
+        {
+          name: "处女座",
+          en: "VIRGO",
+          points: [
+            [0.38, 0.36],
+            [0.42, 0.40],
+            [0.45, 0.46],
+            [0.50, 0.43],
+            [0.54, 0.49],
+            [0.58, 0.44]
+          ],
+          lines: [[0,1],[1,2],[2,3],[3,4],[4,5]]
+        },
+        {
+          name: "天秤座",
+          en: "LIBRA",
+          points: [
+            [0.72, 0.38],
+            [0.78, 0.35],
+            [0.84, 0.39],
+            [0.79, 0.45],
+            [0.75, 0.48],
+            [0.82, 0.50]
+          ],
+          lines: [[0,1],[1,2],[0,3],[3,4],[3,5]]
+        },
+        {
+          name: "天蝎座",
+          en: "SCORPIUS",
+          featured: true,
+          points: [
+            [0.72, 0.62],
+            [0.76, 0.59],
+            [0.80, 0.61],
+            [0.84, 0.66],
+            [0.86, 0.72],
+            [0.83, 0.78],
+            [0.78, 0.81],
+            [0.74, 0.77],
+            [0.78, 0.72]
+          ],
+          lines: [
+            [0,1],[1,2],[2,3],[3,4],
+            [4,5],[5,6],[6,7],[7,8],[8,4]
+          ]
+        },
+        {
+          name: "射手座",
+          en: "SAGITTARIUS",
+          points: [
+            [0.43, 0.66],
+            [0.47, 0.61],
+            [0.51, 0.67],
+            [0.56, 0.62],
+            [0.60, 0.69],
+            [0.54, 0.74]
+          ],
+          lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,2]]
+        },
+        {
+          name: "摩羯座",
+          en: "CAPRICORNUS",
+          points: [
+            [0.14, 0.72],
+            [0.18, 0.68],
+            [0.22, 0.73],
+            [0.27, 0.77],
+            [0.31, 0.72],
+            [0.34, 0.77]
+          ],
+          lines: [[0,1],[1,2],[2,3],[3,4],[4,5]]
+        },
+        {
+          name: "水瓶座",
+          en: "AQUARIUS",
+          points: [
+            [0.39, 0.82],
+            [0.44, 0.78],
+            [0.49, 0.83],
+            [0.54, 0.79],
+            [0.59, 0.84]
+          ],
+          lines: [[0,1],[1,2],[2,3],[3,4]]
+        },
+        {
+          name: "双鱼座",
+          en: "PISCES",
+          points: [
+            [0.77, 0.87],
+            [0.81, 0.83],
+            [0.86, 0.86],
+            [0.90, 0.82],
+            [0.87, 0.91],
+            [0.82, 0.94]
+          ],
+          lines: [[0,1],[1,2],[2,3],[2,4],[4,5],[5,0]]
+        }
+      ];
+
+      /* ---------------------------------------------------------
+         RESIZE
+         --------------------------------------------------------- */
+      function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        createStars();
+        createConstellations();
+        layoutLabels();
+      }
+
+      /* ---------------------------------------------------------
+         NORMAL STARS
+         --------------------------------------------------------- */
+      /* 真实恒星色温（低饱和）：蓝白 / 白 / 黄白 / 橙 / 红巨星 */
+      function pickStarColor() {
+        const r = Math.random();
+        if (r < .12) return { h: 218 + Math.random() * 18, s: 42 + Math.random() * 22 };
+        if (r < .40) return { h: 208 + Math.random() * 22, s: 8 + Math.random() * 18 };
+        if (r < .78) return { h: 42 + Math.random() * 14, s: 16 + Math.random() * 22 };
+        if (r < .94) return { h: 29 + Math.random() * 10, s: 42 + Math.random() * 20 };
+        return { h: 13 + Math.random() * 10, s: 58 + Math.random() * 18 };
+      }
+
+      /* 银河轴线（左下 → 右上）与亮团结构 */
+      const GALAXY = { ax: .10, ay: .96, bx: .93, by: .05 };
+      const GALAXY_CLUMPS = [
+        { t: .22, w: .10, density: 1.4 },
+        { t: .42, w: .08, density: 1.8 },
+        { t: .58, w: .09, density: 1.5 },
+        { t: .74, w: .11, density: 1.9 },
+        { t: .88, w: .08, density: 1.3 }
+      ];
+
+      function galaxyPoint(t, spread) {
+        const bdx = GALAXY.bx - GALAXY.ax;
+        const bdy = GALAXY.by - GALAXY.ay;
+        const bLen = Math.sqrt(bdx * bdx + bdy * bdy);
+        const nx = -bdy / bLen, ny = bdx / bLen;
+        return {
+          x: (GALAXY.ax + bdx * t + nx * spread) * width,
+          y: (GALAXY.ay + bdy * t + ny * spread) * height
+        };
+      }
+
+      function createStars() {
+        const mobile = width < 650;
+        const count = mobile
+          ? Math.floor(width * .34)
+          : Math.floor(width * .52);
+
+        stars = [];
+
+        const makeStar = (x, y, dust) => {
+          const col = pickStarColor();
+
+          /* 星等：幂律分布 —— 大量暗星，少数中等，极少数亮星 */
+          const mag = Math.pow(Math.random(), 2.35);
+          let tier, radius, alpha, amp;
+
+          if (dust) {
+            tier = 0;
+            radius = Math.random() * .55 + .22;
+            alpha = Math.random() * .26 + .07;
+            amp = Math.random() * .05;
+          } else if (mag < .74) {
+            tier = 0;
+            radius = Math.random() * .5 + .35;
+            alpha = Math.random() * .3 + .18;
+            amp = .015 + Math.random() * .05;
+          } else if (mag < .94) {
+            tier = 1;
+            radius = Math.random() * .55 + .85;
+            alpha = Math.random() * .28 + .5;
+            amp = .04 + Math.random() * .1;
+          } else {
+            tier = 2;
+            radius = Math.random() * .8 + 1.35;
+            alpha = Math.random() * .2 + .8;
+            amp = .06 + Math.random() * .12;
+          }
+
+          stars.push({
+            x, y,
+            radius,
+            alpha,
+            phase: Math.random() * Math.PI * 2,
+            amp,
+            f1: .00035 + Math.random() * .0009,
+            f2: .00015 + Math.random() * .00045,
+            hue: col.h,
+            sat: dust ? col.s * .55 : col.s,
+            tier,
+            spike: tier === 2,
+            parallax: dust ? .04 + Math.random() * .1 : Math.random() * .35 + .08,
+            dust: !!dust
+          });
+        };
+
+        /* 全天恒星 */
+        for (let i = 0; i < count; i++) {
+          makeStar(Math.random() * width, Math.random() * height, false);
+        }
+
+        /* 银河尘埃星：沿光带聚集，亮团处更密 */
+        const dustCount = Math.floor(width * (mobile ? .30 : .48));
+
+        for (let i = 0; i < dustCount; i++) {
+          let t = Math.random();
+
+          /* 40% 的尘埃聚集在亮团附近 */
+          if (Math.random() < .4) {
+            const clump =
+              GALAXY_CLUMPS[Math.floor(Math.random() * GALAXY_CLUMPS.length)];
+            t = clump.t + (Math.random() + Math.random() - 1) * clump.w * 2;
+            t = Math.max(0, Math.min(1, t));
+          }
+
+          const spread =
+            (Math.random() + Math.random() + Math.random() - 1.5) / 1.5 * .16;
+
+          const p = galaxyPoint(t, spread);
+          makeStar(p.x, p.y, true);
+        }
+      }
+
+      /* ---------------------------------------------------------
+         CONSTELLATION STARS
+         --------------------------------------------------------- */
+      function createConstellations() {
+        constellationStars = [];
+
+        constellations.forEach((constellation, constellationIndex) => {
+          constellation.points.forEach(point => {
+            constellationStars.push({
+              bx: point[0],
+              by: point[1],
+              x: point[0] * width,
+              y: point[1] * height,
+              constellationIndex,
+              radius: constellation.featured
+                ? 1.9 + Math.random() * 1.3
+                : 1.25 + Math.random() * .8,
+              phase: Math.random() * Math.PI * 2,
+              featured: !!constellation.featured
+            });
+          });
+        });
+      }
+
+      /* ---------------------------------------------------------
+         CONSTELLATION LABELS
+         --------------------------------------------------------- */
+      function createLabels() {
+        labels.forEach(node => node.remove());
+        labels = [];
+
+        constellations.forEach(c => {
+          const label = document.createElement("div");
+          label.className = "constellation-label";
+          label.textContent = c.name + " · " + c.en;
+          document.body.appendChild(label);
+          labels.push(label);
+        });
+      }
+
+      function layoutLabels() {
+        constellations.forEach((c, i) => {
+          const node = labels[i];
+          if (!node) return;
+
+          let cx = 0;
+          let cy = 0;
+          c.points.forEach(point => {
+            cx += point[0];
+            cy += point[1];
+          });
+          cx /= c.points.length;
+          cy /= c.points.length;
+
+          node.style.left = (cx * 100) + "%";
+          node.style.top = (cy * 100 + 4) + "%";
+        });
+      }
+
+      /* ---------------------------------------------------------
+         宇宙缓慢漂移
+         --------------------------------------------------------- */
+      function drift() {
+        return {
+          x: Math.sin(time * .00011) * 14,
+          y: Math.cos(time * .00008) * 10
+        };
+      }
+
+      /* ---------------------------------------------------------
+         DRAW BACKGROUND STARS
+         --------------------------------------------------------- */
+      function drawStars() {
+        const d = drift();
+        const dark = isDark();
+
+        stars.forEach(star => {
+
+          /* 双频正弦叠加，闪烁更自然不规则 */
+          const tw =
+            Math.sin(time * star.f1 + star.phase) * .6 +
+            Math.sin(time * star.f2 + star.phase * 1.7) * .4;
+
+          const alpha =
+            Math.max(.05, Math.min(1, star.alpha + tw * star.amp));
+
+          let x = star.x + d.x * star.parallax;
+          let y = star.y + d.y * star.parallax;
+
+          /* 鼠标造成轻微视差 */
+          if (mouse.active) {
+            const dx = mouse.x - width / 2;
+            const dy = mouse.y - height / 2;
+            x += dx * star.parallax * .018;
+            y += dy * star.parallax * .018;
+          }
+
+          /* 鼠标附近闪烁 */
+          let mouseBoost = 0;
+
+          if (mouse.active) {
+            const dx = x - mouse.x;
+            const dy = y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 160) {
+              mouseBoost = (1 - distance / 160) * .7;
+            }
+          }
+
+          /* 地平线大气消光：越靠近屏幕底部（地平线）星越暗 */
+          const horizon =
+            y > height * .55
+              ? 1 - Math.pow((y / height - .55) / .45, 2) * .35
+              : 1;
+
+          const finalAlpha =
+            Math.min(1, alpha + mouseBoost) * (dark ? 1 : .55) * horizon;
+
+          const light = star.tier === 2 ? 96 : star.tier === 1 ? 92 : 88;
+
+          /* 亮星：色温光晕 + 十字衍射星芒 */
+          if (star.tier === 2) {
+            const haloR = star.radius * 7;
+
+            const halo = ctx.createRadialGradient(
+              x, y, 0, x, y, haloR
+            );
+            halo.addColorStop(
+              0,
+              "hsla(" + star.hue + "," + star.sat + "%,92%," + (finalAlpha * .5) + ")"
+            );
+            halo.addColorStop(
+              .35,
+              "hsla(" + star.hue + "," + star.sat + "%,85%," + (finalAlpha * .16) + ")"
+            );
+            halo.addColorStop(
+              1,
+              "hsla(" + star.hue + "," + star.sat + "%,80%,0)"
+            );
+
+            ctx.beginPath();
+            ctx.fillStyle = halo;
+            ctx.arc(x, y, haloR, 0, Math.PI * 2);
+            ctx.fill();
+
+            const len = star.radius * (4.2 + Math.max(0, tw) * 2.6);
+
+            ctx.save();
+            ctx.strokeStyle =
+              "hsla(" + star.hue + "," + Math.min(star.sat, 40) +
+              "%,95%," + (finalAlpha * .4) + ")";
+            ctx.lineWidth = .55;
+            ctx.beginPath();
+            ctx.moveTo(x - len, y);
+            ctx.lineTo(x + len, y);
+            ctx.moveTo(x, y - len);
+            ctx.lineTo(x, y + len);
+            ctx.stroke();
+            ctx.restore();
+          }
+
+          if (mouseBoost > .04) {
+            ctx.beginPath();
+
+            const glow = ctx.createRadialGradient(
+              x, y, 0,
+              x, y, 14 + mouseBoost * 22
+            );
+
+            glow.addColorStop(
+              0,
+              "hsla(" + star.hue + ",90%,90%," + (mouseBoost * .5) + ")"
+            );
+            glow.addColorStop(
+              1,
+              "hsla(" + star.hue + ",90%,70%,0)"
+            );
+
+            ctx.fillStyle = glow;
+            ctx.arc(x, y, 16 + mouseBoost * 14, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          if (star.tier === 0) {
+            /* 暗星：锐利方块像素，接近肉眼看到的细小星点 */
+            const s = star.radius + mouseBoost * 1.2;
+            ctx.fillStyle =
+              "hsla(" + star.hue + "," + star.sat + "%," + light + "%," + finalAlpha + ")";
+            ctx.fillRect(x - s / 2, y - s / 2, s, s);
+          } else {
+            /* 中 / 亮星：圆本体 */
+            ctx.beginPath();
+            ctx.fillStyle =
+              "hsla(" + star.hue + "," + star.sat + "%," + light + "%," + finalAlpha + ")";
+            ctx.arc(
+              x, y,
+              star.radius + mouseBoost * 1.4,
+              0, Math.PI * 2
+            );
+            ctx.fill();
+
+            /* 近白色亮核，让亮星"扎眼" */
+            const coreR = star.tier === 2 ? star.radius * .55 : star.radius * .45;
+            const coreA = star.tier === 2
+              ? Math.min(1, finalAlpha + .1)
+              : finalAlpha * .6;
+
+            if (coreA > .05) {
+              ctx.beginPath();
+              ctx.fillStyle =
+                "hsla(" + star.hue + "," + Math.min(star.sat, 22) +
+                "%,98%," + coreA + ")";
+              ctx.arc(x, y, coreR, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+        });
+      }
+
+      /* ---------------------------------------------------------
+         DRAW CONSTELLATIONS
+         --------------------------------------------------------- */
+      function drawConstellations() {
+        const d = drift();
+
+        constellations.forEach((constellation, constellationIndex) => {
+
+          const points =
+            constellationStars.filter(
+              star => star.constellationIndex === constellationIndex
+            );
+
+          points.forEach(star => {
+            star.x = star.bx * width + d.x;
+            star.y = star.by * height + d.y;
+          });
+
+          /* 星座连线 */
+          constellation.lines.forEach(([a, b]) => {
+            const p1 = points[a];
+            const p2 = points[b];
+            if (!p1 || !p2) return;
+
+            let alpha = constellation.featured ? .27 : .10;
+
+            if (mouse.active) {
+              const mx = (p1.x + p2.x) / 2;
+              const my = (p1.y + p2.y) / 2;
+              const dx = mx - mouse.x;
+              const dy = my - mouse.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 240) {
+                alpha +=
+                  (1 - distance / 240) *
+                  (constellation.featured ? .28 : .18);
+              }
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+
+            const gradient = ctx.createLinearGradient(
+              p1.x, p1.y, p2.x, p2.y
+            );
+
+            gradient.addColorStop(0, "rgba(129,140,248," + alpha + ")");
+            gradient.addColorStop(.5, "rgba(103,232,249," + (alpha * 1.2) + ")");
+            gradient.addColorStop(1, "rgba(129,140,248," + alpha + ")");
+
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = constellation.featured ? 1.1 : .7;
+            ctx.stroke();
+          });
+
+          /* 星座节点 */
+          points.forEach(star => {
+            let glow = 0;
+
+            if (mouse.active) {
+              const dx = star.x - mouse.x;
+              const dy = star.y - mouse.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 190) {
+                glow = 1 - distance / 190;
+              }
+            }
+
+            const pulse =
+              .5 + Math.sin(time * .002 + star.phase) * .5;
+
+            const radius =
+              star.radius + glow * 3 + pulse * .35;
+
+            /* 外部光晕 */
+            if (star.featured || glow > .05) {
+              const gradient = ctx.createRadialGradient(
+                star.x, star.y, 0,
+                star.x, star.y, 22 + glow * 30
+              );
+
+              gradient.addColorStop(0, "rgba(165,180,252," + (.20 + glow * .42) + ")");
+              gradient.addColorStop(.35, "rgba(103,232,249," + (.07 + glow * .16) + ")");
+              gradient.addColorStop(1, "rgba(103,232,249,0)");
+
+              ctx.beginPath();
+              ctx.fillStyle = gradient;
+              ctx.arc(star.x, star.y, 22 + glow * 20, 0, Math.PI * 2);
+              ctx.fill();
+            }
+
+            /* 核心星点 */
+            ctx.beginPath();
+            ctx.fillStyle =
+              "rgba(235,240,255," + (.5 + glow * .35) + ")";
+            ctx.arc(star.x, star.y, radius, 0, Math.PI * 2);
+            ctx.fill();
+          });
+        });
+      }
+
+      /* ---------------------------------------------------------
+         METEORS
+         --------------------------------------------------------- */
+      function createMeteor(force) {
+        if (!force && Math.random() > .006) return;
+
+        const speed = 9 + Math.random() * 12;
+        const angle = Math.PI * (.30 + Math.random() * .12);
+
+        meteors.push({
+          x: Math.random() * width * 1.15,
+          y: -Math.random() * height * .35,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          length: 90 + Math.random() * 190,
+          life: 1,
+          size: 1 + Math.random() * 1.4
+        });
+      }
+
+      function drawMeteors() {
+        meteors.forEach(meteor => {
+          const tailX = meteor.x - meteor.vx * meteor.length / 12;
+          const tailY = meteor.y - meteor.vy * meteor.length / 12;
+
+          const gradient = ctx.createLinearGradient(
+            meteor.x, meteor.y, tailX, tailY
+          );
+
+          gradient.addColorStop(0, "rgba(255,255,255," + meteor.life + ")");
+          gradient.addColorStop(.12, "rgba(165,243,252," + (meteor.life * .9) + ")");
+          gradient.addColorStop(.45, "rgba(129,140,248," + (meteor.life * .35) + ")");
+          gradient.addColorStop(1, "rgba(129,140,248,0)");
+
+          ctx.beginPath();
+          ctx.moveTo(meteor.x, meteor.y);
+          ctx.lineTo(tailX, tailY);
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = meteor.size;
+          ctx.lineCap = "round";
+          ctx.stroke();
+
+          /* 流星头部辉光 */
+          const glow = ctx.createRadialGradient(
+            meteor.x, meteor.y, 0,
+            meteor.x, meteor.y, 15
+          );
+
+          glow.addColorStop(0, "rgba(255,255,255," + meteor.life + ")");
+          glow.addColorStop(.3, "rgba(103,232,249," + (meteor.life * .65) + ")");
+          glow.addColorStop(1, "rgba(103,232,249,0)");
+
+          ctx.beginPath();
+          ctx.fillStyle = glow;
+          ctx.arc(meteor.x, meteor.y, 15, 0, Math.PI * 2);
+          ctx.fill();
+
+          meteor.x += meteor.vx;
+          meteor.y += meteor.vy;
+          meteor.life -= .006;
+        });
+
+        meteors = meteors.filter(meteor =>
+          meteor.life > 0 &&
+          meteor.x < width + 300 &&
+          meteor.y < height + 300
+        );
+      }
+
+      /* ---------------------------------------------------------
+         NEBULA 星云
+         --------------------------------------------------------- */
+      const nebulae = [
+        { x: .24, y: .32, r: .46, hue: 246, phase: 0 },
+        { x: .78, y: .24, r: .40, hue: 188, phase: 2.1 },
+        { x: .62, y: .82, r: .44, hue: 282, phase: 4.2 }
+      ];
+
+      function drawNebulae() {
+        const dark = isDark();
+        const base = dark ? 1 : .35;
+        const R = Math.max(width, height);
+
+        nebulae.forEach(n => {
+          const breathe = .75 + .25 * Math.sin(time * .00025 + n.phase);
+          const a = .055 * breathe * base;
+          const cx = n.x * width;
+          const cy = n.y * height;
+          const rad = n.r * R;
+
+          const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+          g.addColorStop(0, "hsla(" + n.hue + ",70%,62%," + a + ")");
+          g.addColorStop(.55, "hsla(" + n.hue + ",70%,60%," + (a * .45) + ")");
+          g.addColorStop(1, "hsla(" + n.hue + ",70%,60%,0)");
+
+          ctx.fillStyle = g;
+          ctx.fillRect(0, 0, width, height);
+        });
+      }
+
+      /* ---------------------------------------------------------
+         MILKY WAY 银河光带（奶白辉光 + 亮团 + 暗尘裂缝）
+         --------------------------------------------------------- */
+      function drawMilkyWay() {
+        const dark = isDark();
+        const base = dark ? 1 : .3;
+        const R = Math.max(width, height);
+
+        ctx.save();
+
+        /* 沿轴的基底辉光：淡淡奶白光带 */
+        for (let i = 0; i <= 10; i++) {
+          const t = i / 10;
+          const p = galaxyPoint(t, 0);
+          const rad = R * .15;
+          const a = .020 * base;
+
+          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, rad);
+          g.addColorStop(0, "hsla(50,35%,90%," + a + ")");
+          g.addColorStop(1, "hsla(50,35%,90%,0)");
+
+          ctx.fillStyle = g;
+          ctx.fillRect(p.x - rad, p.y - rad, rad * 2, rad * 2);
+        }
+
+        /* 亮团：银河中明暗不一的结块 */
+        GALAXY_CLUMPS.forEach(clump => {
+          const p = galaxyPoint(clump.t, 0);
+          const rad = R * (.13 + clump.w);
+          const a = .048 * base * Math.min(2, clump.density);
+
+          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, rad);
+          g.addColorStop(0, "hsla(46,42%,92%," + a + ")");
+          g.addColorStop(.5, "hsla(215,30%,88%," + (a * .5) + ")");
+          g.addColorStop(1, "hsla(215,30%,88%,0)");
+
+          ctx.fillStyle = g;
+          ctx.fillRect(p.x - rad, p.y - rad, rad * 2, rad * 2);
+        });
+
+        /* 暗尘裂缝：深色雾块斜切光带（深色模式下可见） */
+        if (dark) {
+          const rifts = [
+            { t: .33, off: .035, r: .12 },
+            { t: .52, off: -.030, r: .14 },
+            { t: .70, off: .040, r: .11 },
+            { t: .83, off: -.025, r: .10 }
+          ];
+
+          rifts.forEach(rift => {
+            const p = galaxyPoint(rift.t, rift.off);
+            const rad = R * rift.r;
+
+            const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, rad);
+            g.addColorStop(0, "rgba(7,11,26,.55)");
+            g.addColorStop(.6, "rgba(7,11,26,.28)");
+            g.addColorStop(1, "rgba(7,11,26,0)");
+
+            ctx.fillStyle = g;
+            ctx.fillRect(p.x - rad, p.y - rad, rad * 2, rad * 2);
+          });
+        }
+
+        ctx.restore();
+      }
+
+      /* ---------------------------------------------------------
+         JASMINE 茉莉
+         --------------------------------------------------------- */
+      function spawnPetal(x, y, fromCursor) {
+        if (petals.length > 26) return;
+
+        petals.push({
+          x: x !== undefined ? x : Math.random() * width,
+          y: y !== undefined ? y : height + 18,
+          vx: (Math.random() - .5) * .14,
+          vy: fromCursor ? -.18 - Math.random() * .28 : -.10 - Math.random() * .16,
+          size: fromCursor ? 3 + Math.random() * 3 : 4.5 + Math.random() * 5,
+          rot: Math.random() * Math.PI * 2,
+          vr: (Math.random() - .5) * .012,
+          sway: Math.random() * Math.PI * 2,
+          swaySpeed: .0006 + Math.random() * .0009,
+          life: 0,
+          maxLife: fromCursor
+            ? 1600 + Math.random() * 1400
+            : 9000 + Math.random() * 9000,
+          cursor: !!fromCursor
+        });
+      }
+
+      /* 一片基部收尖、顶端圆润的茉莉花瓣（朝上绘制） */
+      function petalPath(size) {
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(
+          -size * .55, -size * .28,
+          -size * .50, -size * .82,
+          0, -size
+        );
+        ctx.bezierCurveTo(
+          size * .50, -size * .82,
+          size * .55, -size * .28,
+          0, 0
+        );
+        ctx.closePath();
+      }
+
+      function drawPetal(p, alpha) {
+        const dark = isDark();
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+
+        petalPath(p.size);
+
+        if (dark) {
+          ctx.fillStyle = "rgba(255,255,255," + alpha + ")";
+          ctx.shadowColor = "rgba(255,255,255," + (alpha * .8) + ")";
+          ctx.shadowBlur = 6;
+          ctx.fill();
+        } else {
+          ctx.fillStyle = "rgba(255,255,255," + (alpha * .9) + ")";
+          ctx.fill();
+          ctx.strokeStyle = "rgba(132,166,146," + (alpha * .6) + ")";
+          ctx.lineWidth = .6;
+          ctx.stroke();
+        }
+
+        ctx.restore();
+      }
+
+      function updatePetals() {
+        /* 环境花瓣：始终保持少量，从底部缓缓升起 */
+        const ambient = petals.reduce((n, p) => n + (p.cursor ? 0 : 1), 0);
+        if (ambient < 9 && Math.random() < .03) spawnPetal();
+
+        for (let i = petals.length - 1; i >= 0; i--) {
+          const p = petals[i];
+          p.life += 16;
+
+          if (p.life >= p.maxLife || p.y < -30) {
+            petals.splice(i, 1);
+            continue;
+          }
+
+          const age = p.life / p.maxLife;
+          let alpha = 1;
+          if (age < .15) alpha = age / .15;
+          else if (age > .7) alpha = Math.max(0, (1 - age) / .3);
+
+          p.x += p.vx + Math.sin(time * p.swaySpeed + p.sway) * .22;
+          p.y += p.vy;
+          p.rot += p.vr;
+
+          drawPetal(p, alpha * (isDark() ? .9 : .55));
+        }
+      }
+
+      /* ---------------------------------------------------------
+         FRIEREN FEATHERS 葬送的芙莉莲 · 蓝色魔法羽毛
+         --------------------------------------------------------- */
+      function spawnFeather(fromX, fromY) {
+        if (feathers.length >= (width < 650 ? 2 : 4)) return;
+
+        feathers.push({
+          x: fromX != null ? fromX : Math.random() * width,
+          y: fromY != null ? fromY : -30,
+          vy: .22 + Math.random() * .3,
+          vx: (Math.random() - .5) * .2,
+          sway: Math.random() * Math.PI * 2,
+          swaySpeed: .0006 + Math.random() * .0008,
+          rot: (Math.random() - .5) * .7,
+          baseRot: (Math.random() - .5) * .7,
+          size: .8 + Math.random() * .7,
+          life: 0,
+          maxLife: 18000 + Math.random() * 10000
+        });
+      }
+
+      function drawFeather(f, alpha) {
+        ctx.save();
+        ctx.translate(f.x, f.y);
+        ctx.rotate(f.rot);
+        ctx.scale(f.size, f.size);
+
+        /* 羽片主体 */
+        ctx.beginPath();
+        ctx.moveTo(0, -14);
+        ctx.quadraticCurveTo(-7.5, -5, -5, 7);
+        ctx.quadraticCurveTo(-2.2, 11.5, 0, 14);
+        ctx.quadraticCurveTo(2.2, 11.5, 5, 7);
+        ctx.quadraticCurveTo(7.5, -5, 0, -14);
+        ctx.closePath();
+
+        const g = ctx.createLinearGradient(0, -14, 0, 14);
+        g.addColorStop(0, "rgba(232,244,255," + alpha + ")");
+        g.addColorStop(.45, "rgba(158,210,255," + (alpha * .9) + ")");
+        g.addColorStop(1, "rgba(108,172,250," + (alpha * .75) + ")");
+
+        ctx.fillStyle = g;
+        ctx.shadowColor = "rgba(125,195,255," + (alpha * .85) + ")";
+        ctx.shadowBlur = 12;
+        ctx.fill();
+
+        /* 羽轴 */
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = "rgba(244,250,255," + (alpha * .95) + ")";
+        ctx.lineWidth = .8;
+        ctx.beginPath();
+        ctx.moveTo(0, -13);
+        ctx.quadraticCurveTo(.6, 0, 0, 16);
+        ctx.stroke();
+
+        /* 羽枝 */
+        ctx.strokeStyle = "rgba(235,247,255," + (alpha * .55) + ")";
+        ctx.lineWidth = .45;
+        ctx.beginPath();
+        for (let i = 0; i < 5; i++) {
+          const yy = -8 + i * 4.2;
+          ctx.moveTo(0, yy);
+          ctx.lineTo(-4.6, yy + 2.8);
+          ctx.moveTo(0, yy);
+          ctx.lineTo(4.6, yy + 2.8);
+        }
+        ctx.stroke();
+
+        ctx.restore();
+      }
+
+      function updateFeathers() {
+        /* 环境羽毛：少量、缓缓飘落 */
+        if (Math.random() < (width < 650 ? .002 : .004)) spawnFeather();
+
+        for (let i = feathers.length - 1; i >= 0; i--) {
+          const f = feathers[i];
+          f.life += 16;
+
+          if (f.life >= f.maxLife || f.y > height + 50) {
+            feathers.splice(i, 1);
+            continue;
+          }
+
+          const age = f.life / f.maxLife;
+          let alpha = 1;
+          if (age < .08) alpha = age / .08;
+          else if (age > .8) alpha = Math.max(0, (1 - age) / .2);
+
+          f.y += f.vy;
+          f.x += f.vx + Math.sin(time * f.swaySpeed + f.sway) * .5;
+          f.rot = f.baseRot + Math.sin(time * f.swaySpeed + f.sway) * .22;
+
+          drawFeather(f, alpha * (isDark() ? .85 : .5));
+        }
+      }
+
+      /* ---------------------------------------------------------
+         MAGIC CIRCLES 葬送的芙莉莲 · 青色魔法阵
+         --------------------------------------------------------- */
+      function drawMagicCircles() {
+        const R = Math.max(width, height);
+        const mobile = width < 650;
+
+        const circles = [
+          {
+            x: width * .88,
+            y: height * .74,
+            r: R * (mobile ? .14 : .2),
+            rot: time * .00011,
+            a: mobile ? .07 : .1
+          },
+          {
+            x: width * .07,
+            y: height * .22,
+            r: R * (mobile ? .09 : .12),
+            rot: -time * .00008,
+            a: mobile ? .05 : .075
+          }
+        ];
+
+        circles.forEach(c => {
+          const breath = c.a * (1 + Math.sin(time * .0009 + c.x) * .3);
+
+          ctx.save();
+          ctx.translate(c.x, c.y);
+          ctx.rotate(c.rot);
+
+          ctx.strokeStyle = "rgba(135,203,255," + breath + ")";
+          ctx.shadowColor = "rgba(105,185,255," + (breath * 2.2) + ")";
+          ctx.shadowBlur = 16;
+          ctx.lineWidth = 1;
+
+          /* 外圆 */
+          ctx.beginPath();
+          ctx.arc(0, 0, c.r, 0, Math.PI * 2);
+          ctx.stroke();
+
+          /* 内圆 */
+          ctx.beginPath();
+          ctx.arc(0, 0, c.r * .72, 0, Math.PI * 2);
+          ctx.stroke();
+
+          /* 环上 12 道符文刻痕 */
+          ctx.lineWidth = .9;
+          ctx.beginPath();
+          for (let i = 0; i < 12; i++) {
+            const a = i * Math.PI / 6;
+            ctx.moveTo(Math.cos(a) * c.r * .8, Math.sin(a) * c.r * .8);
+            ctx.lineTo(Math.cos(a) * c.r * .94, Math.sin(a) * c.r * .94);
+          }
+          ctx.stroke();
+
+          /* 内层双三角法阵 */
+          ctx.lineWidth = .7;
+          for (let t = 0; t < 2; t++) {
+            ctx.beginPath();
+            for (let i = 0; i < 3; i++) {
+              const a = (t ? Math.PI / 2 : -Math.PI / 2) + i * Math.PI * 2 / 3;
+              const px = Math.cos(a) * c.r * .5;
+              const py = Math.sin(a) * c.r * .5;
+              if (i === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.stroke();
+          }
+
+          /* 中心光点 */
+          ctx.fillStyle = "rgba(180,225,255," + (breath * 2.4) + ")";
+          ctx.beginPath();
+          ctx.arc(0, 0, c.r * .05, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.restore();
+        });
+      }
+
+      /* 茉莉花绽放：五片白色花瓣 + 黄色花心 */
+      function spawnBloom() {
+        if (blooms.length >= 3) return;
+
+        const nearMouse = mouse.active && Math.random() < .6;
+
+        blooms.push({
+          x: nearMouse
+            ? mouse.x + (Math.random() - .5) * 160
+            : width * (.15 + Math.random() * .7),
+          y: nearMouse
+            ? mouse.y + (Math.random() - .5) * 120
+            : height * (.15 + Math.random() * .7),
+          size: 9 + Math.random() * 8,
+          rot: Math.random() * Math.PI * 2,
+          vr: (Math.random() - .5) * .0004,
+          life: 0,
+          maxLife: 4200 + Math.random() * 2200
+        });
+      }
+
+      function drawBlooms() {
+        for (let i = blooms.length - 1; i >= 0; i--) {
+          const b = blooms[i];
+          b.life += 16;
+          b.rot += b.vr;
+
+          if (b.life >= b.maxLife) {
+            blooms.splice(i, 1);
+            continue;
+          }
+
+          const age = b.life / b.maxLife;
+          let scale, alpha;
+
+          if (age < .22) {
+            const k = age / .22;
+            scale = k * k * (3 - 2 * k);
+            alpha = k;
+          } else if (age > .72) {
+            scale = 1;
+            alpha = Math.max(0, (1 - age) / .28);
+          } else {
+            scale = 1;
+            alpha = 1;
+          }
+
+          const dark = isDark();
+          alpha *= dark ? .95 : .7;
+
+          ctx.save();
+          ctx.translate(b.x, b.y);
+          ctx.scale(scale, scale);
+
+          /* 花朵柔光 */
+          const glow = ctx.createRadialGradient(0, 0, 0, 0, 0, b.size * 2.4);
+          glow.addColorStop(0, "rgba(255,255,255," + (alpha * .18) + ")");
+          glow.addColorStop(1, "rgba(255,255,255,0)");
+          ctx.fillStyle = glow;
+          ctx.beginPath();
+          ctx.arc(0, 0, b.size * 2.4, 0, Math.PI * 2);
+          ctx.fill();
+
+          /* 五片花瓣 */
+          for (let k = 0; k < 5; k++) {
+            ctx.save();
+            ctx.rotate(b.rot + k * Math.PI * 2 / 5);
+            ctx.translate(0, -b.size * .28);
+
+            petalPath(b.size * .95);
+
+            if (dark) {
+              ctx.fillStyle = "rgba(255,255,255," + (alpha * .92) + ")";
+              ctx.shadowColor = "rgba(255,255,255," + (alpha * .7) + ")";
+              ctx.shadowBlur = 8;
+              ctx.fill();
+            } else {
+              ctx.fillStyle = "rgba(255,255,255," + (alpha * .95) + ")";
+              ctx.fill();
+              ctx.strokeStyle = "rgba(132,166,146," + (alpha * .55) + ")";
+              ctx.lineWidth = .7;
+              ctx.stroke();
+            }
+
+            ctx.restore();
+          }
+
+          /* 花心与花蕊 */
+          ctx.beginPath();
+          ctx.fillStyle = "rgba(250,214,110," + alpha + ")";
+          ctx.arc(0, 0, b.size * .17, 0, Math.PI * 2);
+          ctx.fill();
+
+          for (let k = 0; k < 5; k++) {
+            const a = b.rot + k * Math.PI * 2 / 5;
+            ctx.beginPath();
+            ctx.fillStyle = "rgba(214,170,70," + (alpha * .9) + ")";
+            ctx.arc(
+              Math.cos(a) * b.size * .1,
+              Math.sin(a) * b.size * .1,
+              b.size * .045,
+              0, Math.PI * 2
+            );
+            ctx.fill();
+          }
+
+          ctx.restore();
+        }
+      }
+
+      /* ---------------------------------------------------------
+         SPARKS 鼠标星尘拖尾（微量闪过）
+         --------------------------------------------------------- */
+      const lastSpawn = { x: 0, y: 0 };
+      let lastBloom = 0;
+      let nextBloomGap = 8000;
+
+      function drawSparks() {
+        const dark = isDark();
+
+        for (let i = sparks.length - 1; i >= 0; i--) {
+          const s = sparks[i];
+          s.life += 16;
+
+          if (s.life >= s.maxLife) {
+            sparks.splice(i, 1);
+            continue;
+          }
+
+          const age = s.life / s.maxLife;
+          const alpha = (1 - age) * (1 - age);
+
+          s.x += s.vx;
+          s.y += s.vy;
+          s.vx *= .97;
+          s.vy *= .97;
+          s.vy -= .004;
+
+          const a = alpha * (dark ? .9 : .65);
+          const lightness = dark ? 90 : 60;
+
+          const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.size * 4);
+          g.addColorStop(0, "hsla(" + s.hue + ",90%," + lightness + "%," + a + ")");
+          g.addColorStop(1, "hsla(" + s.hue + ",90%,70%,0)");
+
+          ctx.beginPath();
+          ctx.fillStyle = g;
+          ctx.arc(s.x, s.y, s.size * 4, 0, Math.PI * 2);
+          ctx.fill();
+
+          if (s.cross) {
+            const len = s.size * 3.2 * (1 - age);
+            ctx.strokeStyle =
+              "hsla(" + s.hue + ",90%," + (dark ? 92 : 55) + "%," + (a * .7) + ")";
+            ctx.lineWidth = .5;
+            ctx.beginPath();
+            ctx.moveTo(s.x - len, s.y);
+            ctx.lineTo(s.x + len, s.y);
+            ctx.moveTo(s.x, s.y - len);
+            ctx.lineTo(s.x, s.y + len);
+            ctx.stroke();
+          }
+        }
+      }
+
+      /* ---------------------------------------------------------
+         MOUSE STAR RESPONSE
+         --------------------------------------------------------- */
+      window.addEventListener("mousemove", event => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+        mouse.active = true;
+
+        const dx = event.clientX - lastSpawn.x;
+        const dy = event.clientY - lastSpawn.y;
+
+        /* 移动一段距离才撒一颗星尘，保持微量 */
+        if (dx * dx + dy * dy > 49 && sparks.length < 150) {
+          lastSpawn.x = event.clientX;
+          lastSpawn.y = event.clientY;
+
+          const gold = Math.random() < .45;
+
+          sparks.push({
+            x: event.clientX + (Math.random() - .5) * 6,
+            y: event.clientY + (Math.random() - .5) * 6,
+            vx: -dx * .012 + (Math.random() - .5) * .35,
+            vy: -dy * .012 + (Math.random() - .5) * .35 - .12,
+            life: 0,
+            maxLife: 420 + Math.random() * 520,
+            size: .5 + Math.random() * 1.1,
+            hue: gold ? 42 + Math.random() * 14 : 196 + Math.random() * 26,
+            cross: Math.random() < .22
+          });
+
+          /* 偶尔从指尖飘出一片茉莉花瓣 */
+          if (Math.random() < .05) {
+            spawnPetal(event.clientX, event.clientY, true);
+          }
+        }
+      }, { passive: true });
+
+      /* 芙莉莲式施法：点击时迸发一圈蓝色魔法粒子 */
+      window.addEventListener("mousedown", event => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+        mouse.active = true;
+
+        const n = 12 + Math.floor(Math.random() * 6);
+
+        for (let i = 0; i < n; i++) {
+          const ang = Math.random() * Math.PI * 2;
+          const spd = .6 + Math.random() * 1.6;
+
+          sparks.push({
+            x: event.clientX,
+            y: event.clientY,
+            vx: Math.cos(ang) * spd,
+            vy: Math.sin(ang) * spd - .25,
+            life: 0,
+            maxLife: 520 + Math.random() * 480,
+            size: .7 + Math.random() * 1.2,
+            hue: 192 + Math.random() * 22,
+            cross: Math.random() < .35
+          });
+        }
+
+        /* 偶尔从指尖飘起一片蓝色魔法羽毛 */
+        if (Math.random() < .35) {
+          spawnFeather(
+            event.clientX + (Math.random() - .5) * 20,
+            event.clientY
+          );
+        }
+      }, { passive: true });
+
+      window.addEventListener("mouseout", event => {
+        if (!event.relatedTarget) mouse.active = false;
+      });
+
+      window.addEventListener("blur", () => {
+        mouse.active = false;
+      });
+
+      window.addEventListener("resize", resize);
+
+      /* ---------------------------------------------------------
+         ANIMATION LOOP
+         --------------------------------------------------------- */
+      function animate() {
+        time += 16;
+
+        ctx.clearRect(0, 0, width, height);
+
+        drawNebulae();
+        drawMilkyWay();
+        drawMagicCircles();
+        drawStars();
+        drawConstellations();
+
+        createMeteor();
+        drawMeteors();
+
+        updatePetals();
+        updateFeathers();
+        drawBlooms();
+        drawSparks();
+
+        if (time - lastBloom > nextBloomGap) {
+          lastBloom = time;
+          nextBloomGap = 7000 + Math.random() * 8000;
+          spawnBloom();
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      /* ---------------------------------------------------------
+         BOOT
+         --------------------------------------------------------- */
+      resize();
+      createLabels();
+
+      /* 预置几片花瓣，开场不空 */
+      for (let i = 0; i < 6; i++) {
+        petals.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - .5) * .14,
+          vy: -.10 - Math.random() * .16,
+          size: 4.5 + Math.random() * 5,
+          rot: Math.random() * Math.PI * 2,
+          vr: (Math.random() - .5) * .012,
+          sway: Math.random() * Math.PI * 2,
+          swaySpeed: .0006 + Math.random() * .0009,
+          life: Math.random() * 6000,
+          maxLife: 9000 + Math.random() * 9000,
+          cursor: false
+        });
+      }
+
+      if (!reducedMotion) {
+        if (coarsePointer) {
+          /* 触屏设备：关闭鼠标交互，保留星空 */
+          mouse.active = false;
+        }
+
+        /* 开场 1.2 秒后先来一颗流星 */
+        setTimeout(() => createMeteor(true), 1200);
+        setTimeout(spawnBloom, 2600);
+        animate();
+      }
+    })();
+  </script>
+
+  <script>
+    /* =========================================================
+       茉莉花光标：平滑跟随 + 悬停放大 + 点击轻摆
+       ========================================================= */
+    (function JasmineCursor() {
+      const cursor = document.getElementById("jasmineCursor");
+      if (!cursor) return;
+      if (!window.matchMedia("(pointer: fine)").matches) return;
+
+      let tx = -100, ty = -100;
+      let x = -100, y = -100;
+      let shown = false;
+
+      window.addEventListener("mousemove", e => {
+        tx = e.clientX;
+        ty = e.clientY;
+
+        if (!shown) {
+          shown = true;
+          x = tx;
+          y = ty;
+          cursor.classList.add("ready");
+        }
+      }, { passive: true });
+
+      /* 悬停可交互元素时花朵放大 */
+      window.addEventListener("mouseover", e => {
+        const interactive = e.target.closest
+          ? e.target.closest(
+              "a, button, .highlight, .honor-card, .tab, input, select, textarea, label"
+            )
+          : null;
+        cursor.classList.toggle("hover", !!interactive);
+      }, { passive: true });
+
+      window.addEventListener("mousedown", () => {
+        cursor.classList.add("down", "nod");
+      }, { passive: true });
+
+      window.addEventListener("mouseup", () => {
+        cursor.classList.remove("down");
+      }, { passive: true });
+
+      cursor.addEventListener("animationend", e => {
+        if (e.animationName === "jasmineNod") {
+          cursor.classList.remove("nod");
+        }
+      });
+
+      document.addEventListener("mouseleave", () => {
+        cursor.classList.remove("ready");
+      });
+
+      document.addEventListener("mouseenter", () => {
+        if (shown) cursor.classList.add("ready");
+      });
+
+      (function tick() {
+        x += (tx - x) * .22;
+        y += (ty - y) * .22;
+        cursor.style.setProperty("--jx", x + "px");
+        cursor.style.setProperty("--jy", y + "px");
+        requestAnimationFrame(tick);
+      })();
+    })();
+  </script>
+
+  <script>
+  (function signatureEntrance() {
+    const intro = document.getElementById('signatureIntro');
+    const canvas = document.getElementById('signatureCanvas');
+    const copy = intro.querySelector('.signature-copy');
+    const skip = intro.querySelector('button');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const previousFocus = document.activeElement;
+    const siblings = [...document.body.children].filter(el => el !== intro && !['SCRIPT', 'STYLE'].includes(el.tagName));
+    const inertBefore = siblings.map(el => el.inert);
+    siblings.forEach(el => el.inert = true);
+    skip.focus({ preventScroll: true });
+    let frame = 0, timer = 0, done = false, leaving = false, start = null;
+    let width, height, particles = [], ctx;
+    // One timeline: fly in 1800ms → hold 500ms → text rise 240ms → hold 1000ms → fade 480ms.
+    const FLY = 1800, PARTICLE_HOLD = 500, TEXT_RISE = 240, TEXT_HOLD = 1000;
+    function finish() {
+      if (done) return;
+      done = true;
+      clearTimeout(timer); cancelAnimationFrame(frame);
+      window.removeEventListener('resize', resize);
+      document.removeEventListener('keydown', onKey);
+      siblings.forEach((el, i) => el.inert = inertBefore[i]);
+      document.body.classList.remove('signature-entering');
+      intro.remove();
+      if (previousFocus && previousFocus !== document.body) previousFocus.focus({ preventScroll: true });
+      else document.querySelector('.brand')?.focus({ preventScroll: true });
+      document.dispatchEvent(new Event('signature:complete'));
+    }
+    function leave() {
+      if (leaving || done) return;
+      leaving = true;
+      cancelAnimationFrame(frame); clearTimeout(timer);
+      intro.classList.add('is-leaving');
+      timer = setTimeout(finish, reduced ? 0 : 480);
+    }
+    function onKey(event) { if (event.key === 'Escape') leave(); }
+    skip.addEventListener('click', leave);
+    document.addEventListener('keydown', onKey);
+    function showText() {
+      intro.classList.add('is-text');
+      timer = setTimeout(leave, (reduced ? 0 : TEXT_RISE) + TEXT_HOLD);
+    }
+    function resize() {
+      width = innerWidth; height = innerHeight;
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const mask = document.createElement('canvas');
+      mask.width = Math.ceil(width); mask.height = Math.ceil(height);
+      const ink = mask.getContext('2d', { willReadFrequently: true });
+      ink.fillStyle = '#fff'; ink.textBaseline = 'middle';
+      // Match each line's resting DOM position, excluding the entrance translation.
+      const transform = getComputedStyle(copy).transform;
+      const offsetY = transform === 'none' ? 0 : new DOMMatrixReadOnly(transform).m42;
+      let top = height, bottom = 0;
+      copy.querySelectorAll('span').forEach(line => {
+        const style = getComputedStyle(line);
+        const rect = line.getBoundingClientRect();
+        ink.font = style.fontWeight + ' ' + style.fontSize + ' ' + style.fontFamily;
+        const letters = [...line.textContent];
+        const spacing = parseFloat(style.letterSpacing) || 0;
+        const total = letters.reduce((sum, c) => sum + ink.measureText(c).width, 0) + (letters.length - 1) * spacing;
+        let x = (width - total) / 2;
+        const y = rect.top - offsetY + rect.height / 2;
+        letters.forEach(c => { ink.fillText(c, x, y); x += ink.measureText(c).width + spacing; });
+        top = Math.min(top, rect.top - offsetY);
+        bottom = Math.max(bottom, rect.bottom - offsetY);
+      });
+      const pixels = ink.getImageData(0, 0, mask.width, mask.height).data;
+      const step = width < 600 ? 2 : 3;
+      particles = [];
+      for (let y = Math.max(0, Math.floor(top)); y < Math.min(height, bottom); y += step) {
+        for (let x = 0; x < width; x += step) {
+          if (pixels[(y * mask.width + x) * 4 + 3] < 80) continue;
+          const angle = Math.random() * Math.PI * 2;
+          const radius = Math.max(width, height) * (.55 + Math.random() * .25);
+          particles.push({ x, y, sx: width / 2 + Math.cos(angle) * radius,
+            sy: height / 2 + Math.sin(angle) * radius, delay: Math.random() * 350,
+            bend: (Math.random() - .5) * 170, r: step * (.3 + Math.random() * .17) });
+        }
+      }
+    }
+    function draw(now) {
+      if (done || leaving) return;
+      if (start === null) start = now;
+      const elapsed = now - start;
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = '#f4f1d8';
+      for (const p of particles) {
+        const t = Math.max(0, Math.min(1, (elapsed - p.delay) / (FLY - p.delay)));
+        const ease = 1 - Math.pow(1 - t, 3);
+        const bend = Math.sin(t * Math.PI) * p.bend;
+        const x = p.sx + (p.x - p.sx) * ease + bend;
+        const y = p.sy + (p.y - p.sy) * ease - bend * .45;
+        ctx.globalAlpha = Math.min(1, t * 5) * .92;
+        ctx.beginPath(); ctx.arc(x, y, p.r, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      if (elapsed >= FLY + PARTICLE_HOLD) { showText(); return; }
+      frame = requestAnimationFrame(draw);
+    }
+    try {
+      ctx = canvas.getContext('2d');
+      if (reduced || !ctx) { showText(); return; }
+      resize();
+      window.addEventListener('resize', resize);
+      frame = requestAnimationFrame(draw);
+    } catch (error) { showText(); }
+  })();
+  </script>
+
+</body>
+</html>
